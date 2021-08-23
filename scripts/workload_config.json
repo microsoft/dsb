@@ -1,0 +1,27 @@
+{
+	"output_dir": "D:\\exp\\workload",
+	"binary_dir": "D:\\code\\v2.11.0rc2\\tools",
+	"query_template_root_dir": "D:\\query_templates_sqlserver",
+	"dialect" : "sqlserver",
+	"workload":
+	[
+		{
+			"id" : "1",
+			"query_template_names" : [],
+			"instance_count" : 20,
+			"param_dist" : "normal",
+			"param_sigma" : 2,
+			"param_center" : 0,
+			"rngseed" : 997
+		},
+		{
+			"id" : "2",
+			"query_template_names" : [],
+			"instance_count" : 20,
+			"param_dist" : "normal",
+			"param_sigma" : 1,
+			"param_center" : 0,
+			"rngseed" : 997
+		}
+	]
+}

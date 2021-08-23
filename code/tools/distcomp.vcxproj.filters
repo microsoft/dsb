@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7e399c66-9f60-436f-8e5e-55bdcc0240a7}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{937cd03f-0075-4f89-9a32-fb258296af06}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{73913551-8b41-4ea7-bb72-a7b1f28dc863}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="date.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dcgram.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dcomp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="decimal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="error_msg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="genrand.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="grammar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="r_params.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StringBuffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="permute.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="address.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcgram.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcomp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcomp_params.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="decimal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="error_msg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eval.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="expr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="genrand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grammar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grammar_support.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mathops.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="params.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="porting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="r_params.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="release.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="substitution.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tables.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="permute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="columns.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="streams.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="column_list.txt" />
+  </ItemGroup>
+</Project>

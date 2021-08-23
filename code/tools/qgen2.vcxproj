@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>dsqgen</ProjectName>
+    <ProjectGuid>{59EBAD48-6C40-439D-B7A9-11BF183776DB}</ProjectGuid>
+    <RootNamespace>dsqgen</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="Cygwin Tools.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.26730.12</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>distcomp.exe /i tpcds.dst /o tpcds.idx</Command>
+    </PreBuildEvent>
+    <Midl>
+      <TypeLibraryName>.\./qgen2.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>.\junk/qgen2.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\junk/</AssemblerListingLocation>
+      <ObjectFileName>.\junk/</ObjectFileName>
+      <ProgramDataBaseFileName>.\junk/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(SolutionDir)$(ProjectName).exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>.\./qgen2.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\./qgen2.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <TypeLibraryName>.\./qgen2.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_DEPRECATE;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile>.\./junk/qgen2.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\./junk/</AssemblerListingLocation>
+      <ObjectFileName>.\./junk/</ObjectFileName>
+      <ProgramDataBaseFileName>.\./junk/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\./dsqgen.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\./dsqgen.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\./qgen2.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="address.c" />
+    <ClCompile Include="build_support.c" />
+    <ClCompile Include="date.c" />
+    <ClCompile Include="decimal.c" />
+    <ClCompile Include="dist.c" />
+    <ClCompile Include="error_msg.c" />
+    <ClCompile Include="eval.c" />
+    <ClCompile Include="expr.c" />
+    <ClCompile Include="genrand.c" />
+    <ClCompile Include="grammar_support.c" />
+    <ClCompile Include="keywords.c" />
+    <ClCompile Include="list.c" />
+    <ClCompile Include="nulls.c" />
+    <ClCompile Include="parallel.c" />
+    <ClCompile Include="permute.c" />
+    <ClCompile Include="print.c" />
+    <ClCompile Include="QgenMain.c" />
+    <ClCompile Include="query_handler.c" />
+    <ClCompile Include="release.c" />
+    <ClCompile Include="r_params.c" />
+    <ClCompile Include="scaling.c" />
+    <ClCompile Include="scd.c" />
+    <ClCompile Include="StringBuffer.c" />
+    <ClCompile Include="substitution.c" />
+    <ClCompile Include="tdefs.c" />
+    <ClCompile Include="text.c" />
+    <ClCompile Include="tokenizer.c" />
+    <ClCompile Include="utility.c" />
+    <ClCompile Include="w_inventory.c" />
+    <ClCompile Include="y.tab.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="address.h" />
+    <ClInclude Include="build_support.h" />
+    <ClInclude Include="columns.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="date.h" />
+    <ClInclude Include="dcomp.h" />
+    <ClInclude Include="decimal.h" />
+    <ClInclude Include="dist.h" />
+    <ClInclude Include="driver.h" />
+    <ClInclude Include="error_msg.h" />
+    <ClInclude Include="eval.h" />
+    <ClInclude Include="expr.h" />
+    <ClInclude Include="genrand.h" />
+    <ClInclude Include="grammar.h" />
+    <ClInclude Include="grammar_support.h" />
+    <ClInclude Include="keywords.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="mathops.h" />
+    <ClInclude Include="misc.h" />
+    <ClInclude Include="nulls.h" />
+    <ClInclude Include="parallel.h" />
+    <ClInclude Include="params.h" />
+    <ClInclude Include="permute.h" />
+    <ClInclude Include="porting.h" />
+    <ClInclude Include="pricing.h" />
+    <ClInclude Include="print.h" />
+    <ClInclude Include="qgen_params.h" />
+    <ClInclude Include="query_handler.h" />
+    <ClInclude Include="release.h" />
+    <ClInclude Include="r_params.h" />
+    <ClInclude Include="scaling.h" />
+    <ClInclude Include="scd.h" />
+    <ClInclude Include="streams.h" />
+    <ClInclude Include="StringBuffer.h" />
+    <ClInclude Include="substitution.h" />
+    <ClInclude Include="s_tdefs.h" />
+    <ClInclude Include="tables.h" />
+    <ClInclude Include="tdefs.h" />
+    <ClInclude Include="tdef_functions.h" />
+    <ClInclude Include="tpcds.idx.h" />
+    <ClInclude Include="utility.h" />
+    <ClInclude Include="w_inventory.h" />
+    <ClInclude Include="w_tdefs.h" />
+    <ClInclude Include="y.tab.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="calendar.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="cities.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="english.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="fips.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="items.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="names.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="streets.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="tpcds.dst">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling distributions in tpcds.dst</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distcomp.exe /i tpcds.dst /o tpcds.idx
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">calendar.dst;cities.dst;english.dst;fips.dst;items.dst;names.dst;streets.dst;distcomp.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tpcds.idx;tpcds.idx.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="column_list.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Deriving columns and streams from %(FullPath)</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mkheader column_list.txt
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">columns.h;streams.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <Text Include="query_list.txt" />
+    <Text Include="query_sample_1.txt" />
+    <Text Include="query_sample_2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="distcomp.vcxproj">
+      <Project>{851994e6-2458-4263-b651-e50bd4641e18}</Project>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="Cygwin Tools.targets" />
+  </ImportGroup>
+</Project>

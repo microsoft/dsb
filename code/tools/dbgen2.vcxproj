@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Jack|Win32">
+      <Configuration>Jack</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>dsdgen</ProjectName>
+    <ProjectGuid>{416FD040-5593-4097-B638-3098823CA428}</ProjectGuid>
+    <RootNamespace>dbgen2</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Jack|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Jack|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.26730.12</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Jack|Win32'">
+    <OutDir>$(SolutionDir)</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>distcomp.exe /i tpcds.dst /o tpcds.idx</Command>
+    </PreBuildEvent>
+    <Midl>
+      <TypeLibraryName>.\./dbgen2.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeaderOutputFile>.\./junk/dbgen2.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\./junk/</AssemblerListingLocation>
+      <ObjectFileName>.\./junk/</ObjectFileName>
+      <ProgramDataBaseFileName>.\./junk/</ProgramDataBaseFileName>
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(SolutionDir)$(ProjectName).exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>../dbgen2.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\./dbgen2.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <TypeLibraryName>.\../dbgen2.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>.\../junk/dbgen2.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\../junk/</AssemblerListingLocation>
+      <ObjectFileName>.\../junk/</ObjectFileName>
+      <ProgramDataBaseFileName>.\../junk/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>dbgen2.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>.\../dbgen2.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../dbgen2.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Jack|Win32'">
+    <Midl>
+      <TypeLibraryName>.\../dbgen2.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <PreprocessorDefinitions>_MYSQL;WIN32;NDEBUG;_CONSOLE;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeaderOutputFile>.\../junk/dbgen2.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\../junk/</AssemblerListingLocation>
+      <ObjectFileName>.\../junk/</ObjectFileName>
+      <ProgramDataBaseFileName>.\../junk/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>CompileAsC</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\../dbgen2.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>.\../dbgen2.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\../dbgen2.bsc</OutputFile>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectReference Include="distcomp.vcxproj">
+      <Project>{851994e6-2458-4263-b651-e50bd4641e18}</Project>
+    </ProjectReference>
+    <ProjectReference Include="mkheader.vcxproj">
+      <Project>{3c7945ff-3fe0-4270-b47c-75ca32411b55}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="qgen2.vcxproj">
+      <Project>{59ebad48-6c40-439d-b7a9-11bf183776db}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="address.c" />
+    <ClCompile Include="build_support.c" />
+    <ClCompile Include="date.c" />
+    <ClCompile Include="dbgen_version.c" />
+    <ClCompile Include="decimal.c" />
+    <ClCompile Include="dist.c" />
+    <ClCompile Include="driver.c" />
+    <ClCompile Include="error_msg.c" />
+    <ClCompile Include="genrand.c" />
+    <ClCompile Include="join.c" />
+    <ClCompile Include="joint_distribution.c" />
+    <ClCompile Include="load.c" />
+    <ClCompile Include="misc.c" />
+    <ClCompile Include="nulls.c" />
+    <ClCompile Include="parallel.c" />
+    <ClCompile Include="permute.c" />
+    <ClCompile Include="porting.c" />
+    <ClCompile Include="pricing.c" />
+    <ClCompile Include="print.c" />
+    <ClCompile Include="release.c" />
+    <ClCompile Include="r_params.c" />
+    <ClCompile Include="scaling.c" />
+    <ClCompile Include="scd.c" />
+    <ClCompile Include="sparse.c" />
+    <ClCompile Include="s_brand.c" />
+    <ClCompile Include="s_call_center.c" />
+    <ClCompile Include="s_catalog.c" />
+    <ClCompile Include="s_catalog_order.c" />
+    <ClCompile Include="s_catalog_order_lineitem.c" />
+    <ClCompile Include="s_catalog_page.c" />
+    <ClCompile Include="s_catalog_promotional_item.c" />
+    <ClCompile Include="s_catalog_returns.c" />
+    <ClCompile Include="s_category.c" />
+    <ClCompile Include="s_class.c" />
+    <ClCompile Include="s_company.c" />
+    <ClCompile Include="s_customer.c" />
+    <ClCompile Include="s_customer_address.c" />
+    <ClCompile Include="s_division.c" />
+    <ClCompile Include="s_inventory.c" />
+    <ClCompile Include="s_item.c" />
+    <ClCompile Include="s_manager.c" />
+    <ClCompile Include="s_manufacturer.c" />
+    <ClCompile Include="s_market.c" />
+    <ClCompile Include="s_pline.c" />
+    <ClCompile Include="s_product.c" />
+    <ClCompile Include="s_promotion.c" />
+    <ClCompile Include="s_purchase.c" />
+    <ClCompile Include="s_reason.c" />
+    <ClCompile Include="s_store.c" />
+    <ClCompile Include="s_store_promotional_item.c" />
+    <ClCompile Include="s_store_returns.c" />
+    <ClCompile Include="s_subcategory.c" />
+    <ClCompile Include="s_subclass.c" />
+    <ClCompile Include="s_warehouse.c" />
+    <ClCompile Include="s_web_order.c" />
+    <ClCompile Include="s_web_order_lineitem.c" />
+    <ClCompile Include="s_web_page.c" />
+    <ClCompile Include="s_web_promotinal_item.c" />
+    <ClCompile Include="s_web_returns.c" />
+    <ClCompile Include="s_web_site.c" />
+    <ClCompile Include="s_zip_to_gmt.c" />
+    <ClCompile Include="tdefs.c" />
+    <ClCompile Include="tdef_functions.c" />
+    <ClCompile Include="text.c" />
+    <ClCompile Include="validate.c" />
+    <ClCompile Include="w_call_center.c" />
+    <ClCompile Include="w_catalog_page.c" />
+    <ClCompile Include="w_catalog_returns.c" />
+    <ClCompile Include="w_catalog_sales.c" />
+    <ClCompile Include="w_customer.c" />
+    <ClCompile Include="w_customer_address.c" />
+    <ClCompile Include="w_customer_demographics.c" />
+    <ClCompile Include="w_datetbl.c" />
+    <ClCompile Include="w_household_demographics.c" />
+    <ClCompile Include="w_income_band.c" />
+    <ClCompile Include="w_inventory.c" />
+    <ClCompile Include="w_item.c" />
+    <ClCompile Include="w_promotion.c" />
+    <ClCompile Include="w_reason.c" />
+    <ClCompile Include="w_ship_mode.c" />
+    <ClCompile Include="w_store.c" />
+    <ClCompile Include="w_store_returns.c" />
+    <ClCompile Include="w_store_sales.c" />
+    <ClCompile Include="w_timetbl.c" />
+    <ClCompile Include="w_warehouse.c" />
+    <ClCompile Include="w_web_page.c" />
+    <ClCompile Include="w_web_returns.c" />
+    <ClCompile Include="w_web_sales.c" />
+    <ClCompile Include="w_web_site.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="address.h" />
+    <ClInclude Include="build_support.h" />
+    <CustomBuild Include="columns.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building columns.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mkheader.exe column_list.txt
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">column_list.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">columns.h tables.h streams.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="config.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="date.h" />
+    <ClInclude Include="dbgen_version.h" />
+    <ClInclude Include="dcomp.h" />
+    <ClInclude Include="decimal.h" />
+    <ClInclude Include="dist.h" />
+    <ClInclude Include="driver.h" />
+    <ClInclude Include="error_msg.h" />
+    <ClInclude Include="expr.h" />
+    <ClInclude Include="genrand.h" />
+    <ClInclude Include="grammar.h" />
+    <ClInclude Include="joint_distribution.h" />
+    <ClInclude Include="load.h" />
+    <ClInclude Include="misc.h" />
+    <ClInclude Include="nulls.h" />
+    <ClInclude Include="parallel.h" />
+    <ClInclude Include="params.h" />
+    <ClInclude Include="porting.h" />
+    <ClInclude Include="pricing.h" />
+    <ClInclude Include="print.h" />
+    <ClInclude Include="release.h" />
+    <ClInclude Include="r_params.h" />
+    <ClInclude Include="scaling.h" />
+    <ClInclude Include="scd.h" />
+    <ClInclude Include="sparse.h" />
+    <CustomBuild Include="streams.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">building streams.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mkheader column_list.txt
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">column_list.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">columns.h streams.h tables.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="StringBuffer.h" />
+    <ClInclude Include="s_brand.h" />
+    <ClInclude Include="s_call_center.h" />
+    <ClInclude Include="s_catalog.h" />
+    <ClInclude Include="s_catalog_order.h" />
+    <ClInclude Include="s_catalog_order_lineitem.h" />
+    <ClInclude Include="s_catalog_page.h" />
+    <ClInclude Include="s_catalog_promotional_item.h" />
+    <ClInclude Include="s_catalog_returns.h" />
+    <ClInclude Include="s_category.h" />
+    <ClInclude Include="s_class.h" />
+    <ClInclude Include="s_company.h" />
+    <ClInclude Include="s_customer.h" />
+    <ClInclude Include="s_customer_address.h" />
+    <ClInclude Include="s_division.h" />
+    <ClInclude Include="s_inventory.h" />
+    <ClInclude Include="s_item.h" />
+    <ClInclude Include="s_manager.h" />
+    <ClInclude Include="s_manufacturer.h" />
+    <ClInclude Include="s_market.h" />
+    <ClInclude Include="s_pline.h" />
+    <ClInclude Include="s_product.h" />
+    <ClInclude Include="s_promotion.h" />
+    <ClInclude Include="s_purchase.h" />
+    <ClInclude Include="s_reason.h" />
+    <ClInclude Include="s_store.h" />
+    <ClInclude Include="s_store_promotional_item.h" />
+    <ClInclude Include="s_store_returns.h" />
+    <ClInclude Include="s_subcategory.h" />
+    <ClInclude Include="s_subclass.h" />
+    <ClInclude Include="s_tdefs.h" />
+    <ClInclude Include="s_warehouse.h" />
+    <ClInclude Include="s_web_order.h" />
+    <ClInclude Include="s_web_order_lineitem.h" />
+    <ClInclude Include="s_web_page.h" />
+    <ClInclude Include="s_web_promotional_item.h" />
+    <ClInclude Include="s_web_returns.h" />
+    <ClInclude Include="s_web_site.h" />
+    <ClInclude Include="s_zip_to_gmt.h" />
+    <CustomBuild Include="tables.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">building tables.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mkheader column_list.txt
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">column_list.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">columns.h streams.h tables.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="tdefs.h" />
+    <ClInclude Include="tdef_functions.h" />
+    <CustomBuild Include="tpcds.idx.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling distributions</Message>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tpcds.dst;cities.dst;english.dst;fips.dst;items.dst;names.dst;streets.dst;%(AdditionalInputs)</AdditionalInputs>
+    </CustomBuild>
+    <ClInclude Include="validate.h" />
+    <ClInclude Include="w_call_center.h" />
+    <ClInclude Include="w_catalog_page.h" />
+    <ClInclude Include="w_catalog_returns.h" />
+    <ClInclude Include="w_catalog_sales.h" />
+    <ClInclude Include="w_customer.h" />
+    <ClInclude Include="w_customer_address.h" />
+    <ClInclude Include="w_customer_demographics.h" />
+    <ClInclude Include="w_datetbl.h" />
+    <ClInclude Include="w_household_demographics.h" />
+    <ClInclude Include="w_income_band.h" />
+    <ClInclude Include="w_inventory.h" />
+    <ClInclude Include="w_item.h" />
+    <ClInclude Include="w_promotion.h" />
+    <ClInclude Include="w_reason.h" />
+    <ClInclude Include="w_ship_mode.h" />
+    <ClInclude Include="w_store.h" />
+    <ClInclude Include="w_store_returns.h" />
+    <ClInclude Include="w_store_sales.h" />
+    <ClInclude Include="w_tdefs.h" />
+    <ClInclude Include="w_timetbl.h" />
+    <ClInclude Include="w_warehouse.h" />
+    <ClInclude Include="w_web_page.h" />
+    <ClInclude Include="w_web_returns.h" />
+    <ClInclude Include="w_web_sales.h" />
+    <ClInclude Include="w_web_site.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="calendar.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="cities.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="english.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="fips.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="items.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="names.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="scaling.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="streets.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <CustomBuild Include="tpcds.dst">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling .dst files</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distcomp /i tpcds.dst /o tpcds.idx
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">calendar.dst,cities.dst,english.dst,fips.dst,items.dst,names.dst,scaling.dst,streets.dst;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tpcds.idx; tpcds.idx.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Jack|Win32'">Compiling .dst files</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Jack|Win32'">distcomp /i tpcds.dst /o tpcds.idx
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Jack|Win32'">calendar.dst,cities.dst,english.dst,fips.dst,items.dst,names.dst,scaling.dst,streets.dst;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Jack|Win32'">tpcds.idx; tpcds.idx.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling .dst files</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distcomp /i tpcds.dst /o tpcds.idx
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">calendar.dst,cities.dst,english.dst,fips.dst,items.dst,names.dst,scaling.dst,streets.dst;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tpcds.idx; tpcds.idx.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="tpcds.idx">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Rebuilding distributions</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distcomp /i tpcds.dst /o tpcds.idx
+</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tpcds.dst;calendar.dst;cities.dst;english.dst;fips.dst;items.dst;names.dst;scaling.dst;streets.dst;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tpcds.idx tpcds.idx.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="column_list.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <Text Include="ReleaseNotes.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

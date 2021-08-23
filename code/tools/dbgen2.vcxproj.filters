@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ef1ef63a-dba6-445b-b2e1-d894b8a6d60d}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{a5a783da-cb7e-453e-8d12-51e5f9d4cea8}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{7fd8efbc-982c-47c1-b053-5e6424847dd4}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="build_support.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="date.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dbgen_version.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="decimal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="driver.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="error_msg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="genrand.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="join.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="load.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="misc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nulls.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parallel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="permute.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="porting.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pricing.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="print.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="r_params.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_brand.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_call_center.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_catalog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_catalog_order.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_catalog_order_lineitem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_catalog_page.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_catalog_promotional_item.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_catalog_returns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_category.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_class.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_company.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_customer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_customer_address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_division.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_inventory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_item.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_manager.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_manufacturer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_market.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_pline.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_product.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_promotion.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_purchase.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_reason.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_store.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_store_promotional_item.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_store_returns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_subcategory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_subclass.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_warehouse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_web_order.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_web_order_lineitem.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_web_page.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_web_promotinal_item.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_web_returns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_web_site.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="s_zip_to_gmt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scaling.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="scd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sparse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tdef_functions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tdefs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="text.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="validate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_call_center.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_catalog_page.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_catalog_returns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_catalog_sales.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_customer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_customer_address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_customer_demographics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_datetbl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_household_demographics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_income_band.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_inventory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_item.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_promotion.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_reason.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_ship_mode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_store.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_store_returns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_store_sales.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_timetbl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_warehouse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_web_page.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_web_returns.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_web_sales.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="w_web_site.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="joint_distribution.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="address.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="build_support.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dbgen_version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcomp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="decimal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="driver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="error_msg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="expr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="genrand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="grammar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="load.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="misc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nulls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parallel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="params.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="porting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pricing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="print.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="r_params.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="release.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_brand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_call_center.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_catalog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_catalog_order.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_catalog_order_lineitem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_catalog_page.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_catalog_promotional_item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_catalog_returns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_category.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_class.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_company.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_customer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_customer_address.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_division.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_inventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_manufacturer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_market.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_pline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_product.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_promotion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_purchase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_reason.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_store.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_store_promotional_item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_store_returns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_subcategory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_subclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_tdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_warehouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_web_order.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_web_order_lineitem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_web_page.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_web_promotional_item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_web_returns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_web_site.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="s_zip_to_gmt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scaling.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sparse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tdef_functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="validate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_call_center.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_catalog_page.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_catalog_returns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_catalog_sales.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_customer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_customer_address.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_customer_demographics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_datetbl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_household_demographics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_income_band.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_inventory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_promotion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_reason.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_ship_mode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_store.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_store_returns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_store_sales.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_tdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_timetbl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_warehouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_web_page.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_web_returns.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_web_sales.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="w_web_site.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joint_distribution.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReleaseNotes.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="columns.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="streams.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="tables.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="tpcds.idx.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="calendar.dst" />
+    <CustomBuild Include="cities.dst" />
+    <CustomBuild Include="column_list.txt" />
+    <CustomBuild Include="english.dst" />
+    <CustomBuild Include="fips.dst" />
+    <CustomBuild Include="items.dst" />
+    <CustomBuild Include="names.dst" />
+    <CustomBuild Include="scaling.dst" />
+    <CustomBuild Include="streets.dst" />
+    <CustomBuild Include="tpcds.dst" />
+    <CustomBuild Include="tpcds.idx" />
+  </ItemGroup>
+</Project>
