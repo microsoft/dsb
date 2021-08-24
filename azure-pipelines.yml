@@ -39,7 +39,9 @@ steps:
   inputs:
     toolVersion: Latest
 
-- task: Semmle@1
+- task: Semmle@0
+  env:
+    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
   inputs:
     sourceCodeDirectory: '$(Build.SourcesDirectory)'
     language: 'cpp'
@@ -48,7 +50,9 @@ steps:
     ram: '16384'
     addProjectDirToScanningExclusionList: true
 
-- task: Semmle@1
+- task: Semmle@0
+  env:
+    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
   inputs:
     sourceCodeDirectory: '$(Build.SourcesDirectory)'
     language: 'python'
