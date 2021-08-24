@@ -208,18 +208,18 @@ remap_exp_cdf(int * permutation, long long count, double lambda)
 {
 	double * cdf = (double *)malloc((count + 1) * sizeof(double));
 	MALLOC_CHECK(cdf);
-	for (int i = 0; i <= count; ++i)
+	for (int i = 0; i <= (int)count; ++i)
 	{
 		cdf[i] = 0.0;
 	}
-	for (int i = 0; i < count; ++i)
+	for (int i = 0; i < (int)count; ++i)
 	{
 		int idx = i + 1;
 		mapPermutation(&idx, permutation);
 		double cdf_prev = get_exp_cdf(idx - 1, count, lambda);
 		double cdf_cur = get_exp_cdf(idx, count, lambda);
 		double weight = cdf_cur - cdf_prev;
-		for (int j = idx; j <= count; ++j)
+		for (int j = idx; j <= (int)count; ++j)
 		{
 			cdf[j] += weight;
 		}

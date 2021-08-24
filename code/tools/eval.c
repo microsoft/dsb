@@ -477,8 +477,6 @@ EvalDistExpr(expr_t *pExpr, Expr_Val_t *pBuf, Expr_Val_t *pParams, int bIsParam)
 		&& pExpr->Value.nValue != KW_DISTMEMBER) {
 		// Assume the Gaussian distribution has been populated in the last weight set using dcomp.
 		nCol = find_dist(szName)->w_width; // base index starts at 1.
-		if (is_set("VERBOSE"))
-			printf("EvalDistExpr: dist name %s, weight col %d, last weight %d\n", szName, nCol, find_dist(szName)->dist->weight_sets[nCol - 1]);
 	}
 	else if (pParams[2].bUseInt)
 		nCol = (int)pParams[2].nValue;
@@ -769,7 +767,7 @@ EvalDistExpr(expr_t *pExpr, Expr_Val_t *pBuf, Expr_Val_t *pParams, int bIsParam)
 				{
 					for (i = 0; i < nModifierArg; ++i)
 					{
-						printf("%d, ", pBuf[i].nValue);
+						printf("%lld, ", pBuf[i].nValue);
 					}
 				}
 				else

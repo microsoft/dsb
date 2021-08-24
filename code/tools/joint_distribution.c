@@ -85,15 +85,21 @@ struct ATTRIBUTE_KEY_RECORD * initializeCharAttributeKeyRecord(int maxAttributeC
 
 	record->firstKey = (ds_key_t *)malloc(record->maxAttributeCount * sizeof(ds_key_t));
 	MALLOC_CHECK(record->firstKey);
-	memset(record->firstKey, -1, record->maxAttributeCount * sizeof(ds_key_t));
+	memset(record->firstKey, 0, record->maxAttributeCount * sizeof(ds_key_t));
+	for (int i = 0; i < record->maxAttributeCount; ++i)
+		record->firstKey[i] = -1;
 
 	record->curKey = (ds_key_t *)malloc(record->maxAttributeCount * sizeof(ds_key_t));
 	MALLOC_CHECK(record->curKey);
-	memset(record->curKey, -1, record->maxAttributeCount * sizeof(ds_key_t));
+	memset(record->curKey, 0, record->maxAttributeCount * sizeof(ds_key_t));
+	for (int i = 0; i < record->maxAttributeCount; ++i)
+		record->curKey[i] = -1;
 
 	record->nextKey = (ds_key_t *)malloc(record->keyCount * sizeof(ds_key_t));
 	MALLOC_CHECK(record->nextKey);
-	memset(record->nextKey, -1, record->keyCount * sizeof(ds_key_t));
+	memset(record->nextKey, 0, record->keyCount * sizeof(ds_key_t));
+	for (int i = 0; i < record->keyCount; ++i)
+		record->nextKey[i] = -1;
 
 	return record;
 }
@@ -116,15 +122,21 @@ struct ATTRIBUTE_KEY_RECORD * initializeAttributeKeyRecord(int attributeCount, i
 
 	record->firstKey = (ds_key_t *)malloc(record->attributeCount * sizeof(ds_key_t));
 	MALLOC_CHECK(record->firstKey);
-	memset(record->firstKey, -1, record->attributeCount * sizeof(ds_key_t));
+	memset(record->firstKey, 0, record->attributeCount * sizeof(ds_key_t));
+	for (int i = 0; i < record->attributeCount; ++i)
+		record->firstKey[i] = -1;
 
 	record->curKey = (ds_key_t *)malloc(record->attributeCount * sizeof(ds_key_t));
 	MALLOC_CHECK(record->curKey);
-	memset(record->curKey, -1, record->attributeCount * sizeof(ds_key_t));
+	memset(record->curKey, 0, record->attributeCount * sizeof(ds_key_t));
+	for (int i = 0; i < record->attributeCount; ++i)
+		record->curKey[i] = -1;
 
 	record->nextKey = (ds_key_t *)malloc(record->keyCount * sizeof(ds_key_t));
 	MALLOC_CHECK(record->nextKey);
-	memset(record->nextKey, -1, record->keyCount * sizeof(ds_key_t));
+	memset(record->nextKey, 0, record->keyCount * sizeof(ds_key_t));
+	for (int i = 0; i < record->keyCount; ++i)
+		record->nextKey[i] = -1;
 
 	return record;
 }
@@ -165,15 +177,15 @@ struct ATTRIBUTE_KEY_MAP * initializeAttributeKeyMap(int attributeCount, int key
 
 	map->firstKeyIndex = (ds_key_t *)malloc(map->attributeCount * sizeof(ds_key_t));
 	MALLOC_CHECK(map->firstKeyIndex);
-	memset(map->firstKeyIndex, -1, map->attributeCount * sizeof(ds_key_t));
+	memset(map->firstKeyIndex, 0, map->attributeCount * sizeof(ds_key_t));
 
 	map->key = (ds_key_t *)malloc(map->keyCount * sizeof(ds_key_t));
 	MALLOC_CHECK(map->key);
-	memset(map->key, -1, map->keyCount * sizeof(ds_key_t));
+	memset(map->key, 0, map->keyCount * sizeof(ds_key_t));
 
 	map->attribute = (int *)malloc(map->keyCount * sizeof(int));
 	MALLOC_CHECK(map->attribute);
-	memset(map->attribute, -1, map->keyCount * sizeof(int));
+	memset(map->attribute, 0, map->keyCount * sizeof(int));
 
 	return map;
 }
