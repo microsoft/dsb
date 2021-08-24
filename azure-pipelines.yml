@@ -39,9 +39,7 @@ steps:
   inputs:
     toolVersion: Latest
 
-- task: Semmle@0
-  env:
-    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+- task: Semmle@1
   inputs:
     sourceCodeDirectory: '$(Build.SourcesDirectory)'
     language: 'cpp'
@@ -50,9 +48,7 @@ steps:
     ram: '16384'
     addProjectDirToScanningExclusionList: true
 
-- task: Semmle@0
-  env:
-    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+- task: Semmle@1
   inputs:
     sourceCodeDirectory: '$(Build.SourcesDirectory)'
     language: 'python'
@@ -60,6 +56,11 @@ steps:
     timeout: '1800'
     ram: '16384'
     addProjectDirToScanningExclusionList: true
+
+- task: SdtReport@2
+  inputs:
+    GdnExportHtmlFile: true
+    GdnExportAllTools: true
 
 - task: ComponentGovernanceComponentDetection@0
   inputs:
