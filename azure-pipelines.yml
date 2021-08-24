@@ -40,8 +40,6 @@ steps:
     toolVersion: Latest
 
 - task: Semmle@1
-  env:
-    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
   inputs:
     sourceCodeDirectory: '$(Build.SourcesDirectory)'
     language: 'cpp'
@@ -51,8 +49,6 @@ steps:
     addProjectDirToScanningExclusionList: true
 
 - task: Semmle@1
-  env:
-    SYSTEM_ACCESSTOKEN: $(System.AccessToken)
   inputs:
     sourceCodeDirectory: '$(Build.SourcesDirectory)'
     language: 'python'
