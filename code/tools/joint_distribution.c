@@ -2,6 +2,7 @@
 #include "genrand.h"
 #include "joint_distribution.h"
 #include "permute.h"
+#include "r_params.h"
 
 #define JOINT_DISTRIBUTION_BUCKET_COUNT 100
 
@@ -178,14 +179,20 @@ struct ATTRIBUTE_KEY_MAP * initializeAttributeKeyMap(int attributeCount, int key
 	map->firstKeyIndex = (ds_key_t *)malloc(map->attributeCount * sizeof(ds_key_t));
 	MALLOC_CHECK(map->firstKeyIndex);
 	memset(map->firstKeyIndex, 0, map->attributeCount * sizeof(ds_key_t));
+	for (int i = 0; i < map->attributeCount; ++i)
+		map->firstKeyIndex[i] = -1;
 
 	map->key = (ds_key_t *)malloc(map->keyCount * sizeof(ds_key_t));
 	MALLOC_CHECK(map->key);
 	memset(map->key, 0, map->keyCount * sizeof(ds_key_t));
+	for (int i = 0; i < map->keyCount; ++i)
+		map->key[i] = -1;
 
 	map->attribute = (int *)malloc(map->keyCount * sizeof(int));
 	MALLOC_CHECK(map->attribute);
 	memset(map->attribute, 0, map->keyCount * sizeof(int));
+	for (int i = 0; i < map->keyCount; ++i)
+		map->attribute[i] = -1;
 
 	return map;
 }

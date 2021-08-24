@@ -689,7 +689,7 @@ EvalDistExpr(expr_t *pExpr, Expr_Val_t *pBuf, Expr_Val_t *pParams, int bIsParam)
 				{
 					for (i = 0; i < nModifierArg; ++i)
 					{
-						printf("%d, ", pBuf[i].nValue);
+						printf("%d, ", (int)pBuf[i].nValue);
 					}
 				}
 				else
