@@ -42,7 +42,7 @@ steps:
 - task: Semmle@1
   inputs:
     sourceCodeDirectory: '$(Build.SourcesDirectory)'
-    language: 'csharp'
+    language: 'cpp'
     querySuite: 'Recommended'
     timeout: '1800'
     ram: '16384'
