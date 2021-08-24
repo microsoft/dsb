@@ -35,6 +35,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: CredScan@3
+  inputs:
+
+
+container:
 - task: ComponentGovernanceComponentDetection@0
   inputs:
     scanType: 'Register'
