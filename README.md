@@ -2,7 +2,8 @@
 
 DS++ benchmark is designed for evaluating both classical and workload-driven database systems on modern decision support workloads. DS++ is adapted from the widely-used industrial standard TPC-DS benchmark. It enhances the TPC-DS benchmark with complex data distribution and challenging yet semantically meaningful query templates. DS++ also introduces configurable and dynamic workloads to assess the adaptability of database systems. Since classical and workload-driven database systems have different performance dimensions, we further provide guidelines on evaluation methodology and metrics to report. We finally show a case study on how to evaluate both classical and ML-enhanced database systems with the DS++ benchmark.
 
-Disclaimer: The DS++ benchmark is adapted from the TPC-DS benchmark v2.11.0rc2. Its performance metrics and the evaluation result based on DS++ will not be comparable with these based on TPC-DS benchmark.
+Disclaimer: The DS++ benchmark is derived from TPC-DS and as such is not comparable to published TPC-DS results,
+as the DS++ benchmark does not comply with the TPC-DS benchmark
 
 
 ## Compile the code
