@@ -1,9 +1,9 @@
-# DS++ Benchmark
+# DSB Benchmark
 
-DS++ benchmark is designed for evaluating both classical and workload-driven database systems on modern decision support workloads. DS++ is adapted from the widely-used industrial standard TPC-DS benchmark. It enhances the TPC-DS benchmark with complex data distribution and challenging yet semantically meaningful query templates. DS++ also introduces configurable and dynamic workloads to assess the adaptability of database systems. Since classical and workload-driven database systems have different performance dimensions, we further provide guidelines on evaluation methodology and metrics to report. We finally show a case study on how to evaluate both classical and ML-enhanced database systems with the DS++ benchmark.
+The DSB benchmark is designed for evaluating both workloaddriven and traditional database systems on modern decision support workloads. DSB is adapted from the widely-used industrialstandard TPC-DS benchmark. It enhances the TPC-DS benchmark with complex data distribution and challenging yet semantically meaningful query templates. DSB also introduces configurable and dynamic workloads to assess the adaptability of database systems. Since workload-driven and traditional database systems have different performance dimensions, including the additional resources required for tuning and maintaining the systems, we provide guidelines on evaluation methodology and metrics to report. 
 
-Disclaimer: The DS++ benchmark is derived from TPC-DS and as such is not comparable to published TPC-DS results,
-as the DS++ benchmark does not comply with the TPC-DS benchmark
+Disclaimer: The DSB benchmark is derived from TPC-DS and as such is not comparable to published TPC-DS results,
+as the DSB benchmark does not comply with the TPC-DS benchmark
 
 
 ## Compile the code
@@ -24,7 +24,7 @@ as the DS++ benchmark does not comply with the TPC-DS benchmark
 ## Query templates
 - The query templates are adapted from the TPC-DS benchmark with three new queries (100, 101, 102). For the query templates adapted from TPC-DS benchmark, we keep the original query ID of the template.
 - The queries are divided into two groups: agg_queries (i.e., single block queries) and multi-block queries.
-- The DS++ benchmark also includes a set of single-block SPJ queries that are derived from the query templates for evaluating techniques with limited capabilities.
+- The DSB benchmark also includes a set of single-block SPJ queries that are derived from the query templates for evaluating techniques with limited capabilities.
 - The query templates for Microsoft SQL Server dialect: ./query_templates_sqlserver
 - The query templates for Postgres dialect: ./query_templates_pg
 
