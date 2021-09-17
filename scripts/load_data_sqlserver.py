@@ -12,7 +12,7 @@ create_index = True # If create the indexes
 
 create_table_sql = r'D:\scripts\create_tables.sql'
 load_data_sql = r'D:\scripts\load_db_files_sqlserver.sql'
-create_index_sql = r'D:\scripts\dspp_index_sqlserver.sql'
+create_index_sql = r'D:\scripts\dsb_index_sqlserver.sql'
 
 # create database
 if create_db:

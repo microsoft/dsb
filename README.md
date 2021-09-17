@@ -1,6 +1,6 @@
 # DSB Benchmark
 
-The DSB benchmark is designed for evaluating both workloaddriven and traditional database systems on modern decision support workloads. DSB is adapted from the widely-used industrialstandard TPC-DS benchmark. It enhances the TPC-DS benchmark with complex data distribution and challenging yet semantically meaningful query templates. DSB also introduces configurable and dynamic workloads to assess the adaptability of database systems. Since workload-driven and traditional database systems have different performance dimensions, including the additional resources required for tuning and maintaining the systems, we provide guidelines on evaluation methodology and metrics to report. 
+The DSB benchmark is designed for evaluating both workloaddriven and traditional database systems on modern decision support workloads. DSB is adapted from the widely-used industrialstandard TPC-DS benchmark. It enhances the TPC-DS benchmark with complex data distribution and challenging yet semantically meaningful query templates. DSB also introduces configurable and dynamic workloads to assess the adaptability of database systems. Since workload-driven and traditional database systems have different performance dimensions, including the additional resources required for tuning and maintaining the systems, we provide guidelines on evaluation methodology and metrics to report.
 
 Disclaimer: The DSB benchmark is derived from TPC-DS and as such is not comparable to published TPC-DS results,
 as the DSB benchmark does not comply with the TPC-DS benchmark
@@ -12,14 +12,14 @@ as the DSB benchmark does not comply with the TPC-DS benchmark
 ## Data generation
 - The data can be generated based on the instructions in ./code/v2.11.0rc2/tools/How_To_Guide-DS-V2.0.0.docx.
 - Because the DSB benchmark includes correlation between tables, the tables must be generated following a partial order. * We strongly suggest that the users generate ALL the tables when populating the data files *. Generating / repopulating an individual table file can result in incorrect correlation between tables.
-- Sample script to generate data files: ./scripts/generate_dspp_db_files.py
+- Sample script to generate data files: ./scripts/generate_dsb_db_files.py
 - Sample script to load the data files to Microsoft SQL Server: ./scripts/load_data_sqlserver.py
 - Sample script to load the data files to Postgres: ./scripts/load_data_pg.py
 
 ## Physical configuration
 - We provide a sample physical configuration of 56 B+ tree indexes for the database. The physical configuration is produced by the Database Tuning Advisor (DTA) from Microsoft SQL Server based on a 100GB DSB database. This physical configuration is only for demonstration purpose. We suggest the users to produce their own physical configuration based on the database instance and the query workloads.
-- The SQL file to create the indexes for Microsoft SQL Server: ./scripts/dspp_index_sqlserver.sql
-- THe SQL file to create the indexes for Postgres: ./scripts/dspp_index_pg.sql
+- The SQL file to create the indexes for Microsoft SQL Server: ./scripts/dsb_index_sqlserver.sql
+- THe SQL file to create the indexes for Postgres: ./scripts/dsb_index_pg.sql
 
 ## Query templates
 - The query templates are adapted from the TPC-DS benchmark with three new queries (100, 101, 102). For the query templates adapted from TPC-DS benchmark, we keep the original query ID of the template.
