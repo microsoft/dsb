@@ -55,7 +55,6 @@ extern char * g_address_state;
 
 struct W_CUSTOMER_ADDRESS_TBL g_w_customer_address;
 
-/* QOBench */
 static int * pLocationTypePermutation;
 
 struct ATTRIBUTE_KEY_RECORD * pCountyRecord;

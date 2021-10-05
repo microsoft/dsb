@@ -173,7 +173,7 @@ ld_w_household_demographics(void *pSrc)
 	return(0);
 }
 
-/* QOBench */
+/* Store metadata for generating correlated data distribution */
 int
 post_w_household_demographics()
 {

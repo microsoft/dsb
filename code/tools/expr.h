@@ -87,9 +87,9 @@ typedef struct EXPR_T
 #define EXPR_FL_SALES		0x00400000	/*  skew dates for sales */
 #define EXPR_FL_TABLENAME	0x00800000	/*	rowcount() argument is a table name */
 #define EXPR_FL_VENDOR		0x01000000	/*  do double substitution for vendor syntax */
-#define EXPR_FL_ULIST		0x02000000	/*  QOBench: return unique value set from list() */
-#define EXPR_FL_SLIST		0x04000000	/* QOBench: return a sorted value set from list() */
-#define EXPR_FL_SULIST		0x08000000	/* QOBench: return a sorted and unique value set from list() */
+#define EXPR_FL_ULIST		0x02000000	/* return unique value set from list() */
+#define EXPR_FL_SLIST		0x04000000	/* return a sorted value set from list() */
+#define EXPR_FL_SULIST		0x08000000	/* return a sorted and unique value set from list() */
 
 #define EXPR_FL_TYPE_MASK	(EXPR_FL_TEXT|EXPR_FL_RANDOM|EXPR_FL_DIST)	/*  separate substitution types. */
 #define EXPR_FL_DIST_MASK	(EXPR_FL_UNIFORM|EXPR_FL_NORMAL)

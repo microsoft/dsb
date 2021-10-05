@@ -80,7 +80,6 @@ struct {char *name;} tdefs[] = {NULL};
 #define FL_LOADED	0x01
 static int load_dist(d_idx_t *d);
 
-/* QOBench */
 static int * pPermutation = NULL;
 static int permutationCount = 0;
 
@@ -107,9 +106,6 @@ di_compare(const void *op1, const void *op2)
 	return(strcasecmp(ie1->name, ie2->name));
 }
 
-/*
-* QOBench
-*/
 int
 distItemCount(char *name)
 {
@@ -282,7 +278,7 @@ find_dist(char *name)
 }
 
 /*
-* QOBench
+* Print distribution for debugging purpose.
 */
 void
 print_dist(d_idx_t * t)

@@ -51,7 +51,6 @@
 
 struct W_CUSTOMER_TBL g_w_customer;
 
-/* QOBench */
 static int * pCountryPermutation;
 static int * pBirthYearPermutation;
 static int * pBirthMonthPermutation;
@@ -119,7 +118,6 @@ mk_w_customer (void * row, ds_key_t index)
 		jtodt(&dt1YearAgo, dtToday.julian - 365);
 		jtodt(&dt10YearsAgo, dtToday.julian - 3650);
 
-		/* QOBench */
 		pCountryPermutation = makePermutation(NULL, distsize("countries"), C_BIRTH_COUNTRY);
 
 		int nMax = dtBirthMax.year - dtBirthMin.year + 1;
@@ -156,8 +154,7 @@ mk_w_customer (void * row, ds_key_t index)
 
 	r->c_current_addr_sk =
 		mk_join(C_CURRENT_ADDR_SK, CUSTOMER_ADDRESS, r->c_customer_sk);
-
-	/* QOBench */
+	
 	/*
 	r->c_current_cdemo_sk =
 		mk_join(C_CURRENT_CDEMO_SK, CUSTOMER_DEMOGRAPHICS, 1);
@@ -173,8 +170,6 @@ mk_w_customer (void * row, ds_key_t index)
 		"salutations", 1, (nGender == 0) ? 2 : 3, C_SALUTATION);
 
 
-	/* QOBench */
-	//genrand_date(&dtTemp, DIST_UNIFORM, &dtBirthMin, &dtBirthMax, NULL, C_BIRTH_DAY);
 	genrand_date_permutation(&dtTemp, DIST_EXP_RANK_LOW, &dtBirthMin, &dtBirthMax, NULL, C_BIRTH_DAY,
 		pBirthYearPermutation, pBirthMonthPermutation, pBirthDayPermutation);
 

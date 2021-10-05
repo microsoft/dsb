@@ -239,7 +239,7 @@ WriteIndex(distindex_t *t)
 }
 
 /*
-* QOBench
+* Add normal distribution to the weights of data values.
 */
 void
 AddGuassianDist(distindex_t * t)

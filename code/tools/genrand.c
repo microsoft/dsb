@@ -338,11 +338,11 @@ genrand_integer (int *dest, int dist, int min, int max, int mean, int stream)
            fres += (double) (next_random (stream) / MAXINT) - 0.5;
         res = min + (int) ((max - min + 1) * fres);
         break;
-	 /* QOBench */
+	 /* Exponential distribution with low skew */
 	 case DIST_EXP_RANK_LOW:
 		 res = genrand_exp_rank(min, max, DIST_EXP_LAMBDA_LOW, stream);
 		 break;
-	 /* QOBench */
+	/* Exponential distribution with high skew */
 	 case DIST_EXP_RANK_HIGH:
 		res = genrand_exp_rank(min, max, DIST_EXP_LAMBDA_HIGH, stream);
 		break;
@@ -393,12 +393,12 @@ genrand_key (ds_key_t * dest, int dist, ds_key_t min, ds_key_t max,
            fres += (double) (next_random (stream) / MAXINT) - 0.5;
         res = (int) min + (int) ((max - min + 1) * fres);
         break;
-	 /* QOBench */
-	 case DIST_EXP_RANK_LOW:
+	/* Exponential distribution with low skew */
+	case DIST_EXP_RANK_LOW:
 		 res = genrand_exp_rank(min, max, DIST_EXP_LAMBDA_LOW, stream);
 		 break;
-	 /* QOBench */
-	 case DIST_EXP_RANK_HIGH:
+	/* Exponential distribution with high skew */
+	case DIST_EXP_RANK_HIGH:
 		res = genrand_exp_rank(min, max, DIST_EXP_LAMBDA_HIGH, stream);
 		break;
      default:
