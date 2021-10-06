@@ -88,7 +88,8 @@ hierarchy_item(int h_level, ds_key_t *id, char **name, ds_key_t kIndex)
 		// The value fields are categorical.
 		int nMax = distsize("categories");
 		pCategoryPermutation = makePermutation(NULL, nMax, I_CATEGORY);
-		printf("i_category permutation: count %d\n", nMax);
+		if (is_set("VERBOSE"))
+			printf("i_category permutation: count %d\n", nMax);
 	bInit = 1;
 	}
 

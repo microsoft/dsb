@@ -117,14 +117,20 @@ mk_w_web_page (void * row, ds_key_t index)
 		nRevisions = (int)get_rowcount(WEB_PAGE) / nConcurrent;
 
 		pLinkCountPermutation = makePermutation(NULL, WP_LINK_MAX - WP_LINK_MIN + 1, WP_LINK_COUNT);
-		printf("wp_link_count permutation: count %d\n", WP_LINK_MAX - WP_LINK_MIN + 1);
+		if (is_set("VERBOSE"))
+			printf("wp_link_count permutation: count %d\n", WP_LINK_MAX - WP_LINK_MIN + 1);
+
 		pImageCountPermutation = makePermutation(NULL, WP_IMAGE_MAX - WP_IMAGE_MIN + 1, WP_IMAGE_COUNT);
-		printf("wp_image_count permutation: count %d\n", WP_IMAGE_MAX - WP_IMAGE_MIN + 1);
+		if (is_set("VERBOSE"))
+			printf("wp_image_count permutation: count %d\n", WP_IMAGE_MAX - WP_IMAGE_MIN + 1);
+
 		pMaxAdCountPermutation = makePermutation(NULL, WP_AD_MAX - WP_AD_MIN + 1, WP_MAX_AD_COUNT);
-		printf("wp_max_ad_count permutation: count %d\n", WP_AD_MAX - WP_AD_MIN + 1);
+		if (is_set("VERBOSE"))
+			printf("wp_max_ad_count permutation: count %d\n", WP_AD_MAX - WP_AD_MIN + 1);
 
 		pWebTypePermutation = makePermutation(NULL, distsize("web_page_use"), WP_TYPE);
-		printf("wp_web_type permutation: count %d\n", distsize("web_page_use"));
+		if (is_set("VERBOSE"))
+			printf("wp_web_type permutation: count %d\n", distsize("web_page_use"));
 
 		bInit = 1;
 	}

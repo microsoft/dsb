@@ -101,20 +101,24 @@ mk_address(ds_addr_t *pAddr, int nColumn)
 		nMaxCounties = distsize("fips_county");
 
 	  pCitiesPermutation = makePermutation(NULL, nMaxCities, nColumn);
-	  printf("cities permutation: count %d\n", nMaxCities);
+	  if (is_set("VERBOSE"))
+		printf("cities permutation: count %d\n", nMaxCities);
 
 	  pCountiesPermutation = makePermutation(NULL, nMaxCounties, nColumn);
-	  printf("counties permutation: count %d\n", nMaxCounties);
+	  if (is_set("VERBOSE"))
+		  printf("counties permutation: count %d\n", nMaxCounties);
 
 	  // The value fields are categorical.
 	  int nMax = distsize("street_type");
 	  pStreetTypePermutation = makePermutation(NULL, nMax, nColumn);
-	  printf("street_type permutation: count %d\n", nMax);
+	  if (is_set("VERBOSE"))
+		  printf("street_type permutation: count %d\n", nMax);
 
 	  // The value fields are categorical.
 	  nMax = distsize("street_names");
 	  pStreetNamesPermutation = makePermutation(NULL, nMax, nColumn);
-	  printf("street_names permutation: count %d\n", nMax);
+	  if (is_set("VERBOSE"))
+		  printf("street_names permutation: count %d\n", nMax);
 
 
 	  bInit = 1;

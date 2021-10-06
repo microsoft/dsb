@@ -144,7 +144,8 @@ mk_master (void *row, ds_key_t index)
 		// Initialize buckets for dates.
 		makeBucket(&dateBucket, &dateBucketCount, DATE_BUCKET_COUNT, totalDays);
 		pDatePermutation = makePermutation(NULL, dateBucketCount, D_DATE_SK);
-		printf("store_sales date permutation: count %d, bucket %d, bucket count %d\n", totalDays, dateBucket, dateBucketCount);
+		if (is_set("VERBOSE"))
+			printf("store_sales date permutation: count %d, bucket %d, bucket count %d\n", totalDays, dateBucket, dateBucketCount);
 
 		// Add skewed distribution to pricing.
 		pWholesaleCostPermutation = makePermutation(NULL, WHOLESALE_COST_BUCKET_COUNT, STORE_SALES);

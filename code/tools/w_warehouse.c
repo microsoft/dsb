@@ -70,7 +70,8 @@ mk_w_warehouse (void* row, ds_key_t index)
 	{
 		makeBucket(&sqFtBucket, &sqFtBucketCount, 10, W_SQFT_MAX - W_SQFT_MIN + 1);
 		pSqFtPermutation = makePermutation(NULL, sqFtBucketCount, W_WAREHOUSE_SQ_FT);
-		printf("warehouse_sq_ft permutation: min %d, max %d, bucket %d, bucket count %d\n", W_SQFT_MIN, W_SQFT_MAX, sqFtBucket, sqFtBucketCount);
+		if (is_set("VERBOSE"))
+			printf("warehouse_sq_ft permutation: min %d, max %d, bucket %d, bucket count %d\n", W_SQFT_MIN, W_SQFT_MAX, sqFtBucket, sqFtBucketCount);
 
 		bInit = 1;
 	}

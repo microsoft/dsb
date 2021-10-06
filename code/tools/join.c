@@ -453,8 +453,9 @@ customer_demographics_join(ds_key_t *dest, int dist, int stream)
 			cdemo_permutations[i] = makePermutation(NULL, cdemo_column_cards[i], stream);
 		}
 
-		printf("cdemo permutation: column count %d, %d, %d, %d, %d, %d, %d, %d\n",
-			cdemo_column_cards[0], cdemo_column_cards[1], cdemo_column_cards[2], cdemo_column_cards[3], cdemo_column_cards[4], cdemo_column_cards[5], cdemo_column_cards[6], cdemo_column_cards[7]);
+		if (is_set("VERBOSE"))
+			printf("cdemo permutation: column count %d, %d, %d, %d, %d, %d, %d, %d\n",
+				cdemo_column_cards[0], cdemo_column_cards[1], cdemo_column_cards[2], cdemo_column_cards[3], cdemo_column_cards[4], cdemo_column_cards[5], cdemo_column_cards[6], cdemo_column_cards[7]);
 		bInit = 1;
 	}
 	return genrand_hierarchical_key(dest, dist, cdemo_column_count, cdemo_column_cards, stream, cdemo_permutations);

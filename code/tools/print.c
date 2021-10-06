@@ -475,7 +475,8 @@ print_start (int tbl)
 			   exit (-1);
 		   }
 #ifdef WIN32
-		   printf("[DEBUG] File path: %s\n", path);
+		   if (is_set("DEBUG"))
+				printf("[DEBUG] File path: %s\n", path);
 		   pTdef->outfile = fopen (path, "wt");
 #else
 		   pTdef->outfile = fopen (path, "w");

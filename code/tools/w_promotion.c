@@ -98,11 +98,13 @@ mk_w_promotion(void *pDest, ds_key_t index)
 
 		pFlagsPermutation = makePermutation(NULL, 512, P_CHANNEL_DMAIL);
 		pPromoLenPermutation = makePermutation(NULL, PROMO_LEN_MAX - PROMO_LEN_MIN + 1, P_END_DATE_ID);
-		printf("promo_len permutation: count %d\n", PROMO_LEN_MAX - PROMO_LEN_MIN + 1);
+		if (is_set("VERBOSE"))
+			printf("promo_len permutation: count %d\n", PROMO_LEN_MAX - PROMO_LEN_MIN + 1);
 
 		makeBucket(&promoStartBucket, &promoStartBucketCount, 50, PROMO_START_MAX - PROMO_START_MIN + 1);
 		pPromoStartPermutation = makePermutation(NULL, promoStartBucketCount, P_START_DATE_ID);
-		printf("promo_start_date_sk permutation: min %d, max %d, bucket %d, bucket count %d\n", PROMO_START_MIN, PROMO_START_MAX, promoStartBucket, promoStartBucketCount);
+		if (is_set("VERBOSE"))
+			printf("promo_start_date_sk permutation: min %d, max %d, bucket %d, bucket count %d\n", PROMO_START_MIN, PROMO_START_MAX, promoStartBucket, promoStartBucketCount);
 
 		bInit = 1;
 

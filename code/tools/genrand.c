@@ -193,7 +193,6 @@ genrand_exp_rank(long long min, long long max, double lambda, int stream)
 	ratio = min(1, ratio);
 	// Scale it back into the given range.
 	long long rank = min + (long long)(0.5 + (max - min) * ratio);
-	//printf("[DEBUG] exp_rank: min %lld, max %lld, rank %lld\n", min, max, rank);
 	return rank;
 }
 

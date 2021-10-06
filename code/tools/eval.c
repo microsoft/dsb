@@ -291,7 +291,8 @@ EvalRandomExpr(expr_t *pExpr, Expr_Val_t *pBuf, Expr_Val_t *pParams, int bIsPara
 			genrand_key(&nTemp, DIST_UNIFORM, nMin, nMax, 0, 0);
 			pBuf[i].nValue = (nTemp % (nMax - nMin + 1)) + nMin;
 			pBuf[i].bUseInt = 1;
-			printf("[DEBUG] EvalRandomExpr: list nTemp %lld, value %lld\n", nTemp, pBuf[i].nValue);
+			if (is_set("DEBUG"))
+				printf("[DEBUG] EvalRandomExpr: list nTemp %lld, value %lld\n", nTemp, pBuf[i].nValue);
 		}
 		break;
 	case EXPR_FL_SLIST:	/* return a sorted list of values */
@@ -304,7 +305,8 @@ EvalRandomExpr(expr_t *pExpr, Expr_Val_t *pBuf, Expr_Val_t *pParams, int bIsPara
 			genrand_key(&nTemp, DIST_UNIFORM, startIdx, nMax, 0, 0);
 			pBuf[i].nValue = (nTemp % (nMax - nMin + 1)) + nMin;
 			pBuf[i].bUseInt = 1;
-			printf("[DEBUG] EvalRandomExpr: slist nTemp %lld, startIdx %lld, value %lld\n", nTemp, startIdx, pBuf[i].nValue);
+			if (is_set("DEBUG"))
+				printf("[DEBUG] EvalRandomExpr: slist nTemp %lld, startIdx %lld, value %lld\n", nTemp, startIdx, pBuf[i].nValue);
 			startIdx = nTemp;
 		}
 		break;

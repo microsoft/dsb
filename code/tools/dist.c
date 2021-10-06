@@ -166,8 +166,8 @@ find_dist(char *name)
 		/* make sure that this is read one thread at a time */
 		if (!index_loaded)	/* make sure no one beat us to it */
 		{
-
-			printf("load distribution from %s\n", get_str("DISTRIBUTIONS"));
+			if (is_set("VERBOSE"))
+				printf("load distribution from %s\n", get_str("DISTRIBUTIONS"));
 			/* open the dist file */
 			if ((ifp = fopen(get_str("DISTRIBUTIONS"), "rb")) == NULL)
 				{
