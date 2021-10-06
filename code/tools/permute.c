@@ -133,7 +133,7 @@ makeKeyPermutation(ds_key_t *nNumberSet, ds_key_t nSize, int nStream)
 
 	if (!nNumberSet)
 	{
-		nNumberSet = (ds_key_t *)malloc(nSize * sizeof(ds_key_t));
+		nNumberSet = (ds_key_t *)malloc((size_t)nSize * sizeof(ds_key_t));
 		MALLOC_CHECK(nNumberSet);
 		pInt = nNumberSet;
 		for (i=0; i < nSize; i++)

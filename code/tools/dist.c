@@ -111,9 +111,6 @@ distItemCount(char *name)
 {
 	d_idx_t *d;
 	dist_t *dist;
-	int	level,
-		index = 0,
-		dt;
 	char *char_val;
 	int i_res = 1;
 

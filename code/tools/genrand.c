@@ -206,7 +206,7 @@ genrand_exp_rank(long long min, long long max, double lambda, int stream)
 double *
 remap_exp_cdf(int * permutation, long long count, double lambda)
 {
-	double * cdf = (double *)malloc((count + 1) * sizeof(double));
+	double * cdf = (double *)malloc((size_t)(count + 1) * sizeof(double));
 	MALLOC_CHECK(cdf);
 	for (int i = 0; i <= (int)count; ++i)
 	{
@@ -340,11 +340,11 @@ genrand_integer (int *dest, int dist, int min, int max, int mean, int stream)
         break;
 	 /* Exponential distribution with low skew */
 	 case DIST_EXP_RANK_LOW:
-		 res = genrand_exp_rank(min, max, DIST_EXP_LAMBDA_LOW, stream);
+		 res = (int)genrand_exp_rank(min, max, DIST_EXP_LAMBDA_LOW, stream);
 		 break;
 	/* Exponential distribution with high skew */
 	 case DIST_EXP_RANK_HIGH:
-		res = genrand_exp_rank(min, max, DIST_EXP_LAMBDA_HIGH, stream);
+		res = (int)genrand_exp_rank(min, max, DIST_EXP_LAMBDA_HIGH, stream);
 		break;
      default:
         INTERNAL ("Undefined distribution");
@@ -377,7 +377,7 @@ ds_key_t
 genrand_key (ds_key_t * dest, int dist, ds_key_t min, ds_key_t max,
              ds_key_t mean, int stream)
 {
-   int res = 0,
+   long long res = 0,
      i;
    double fres = 0;
 

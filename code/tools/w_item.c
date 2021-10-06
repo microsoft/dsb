@@ -253,7 +253,7 @@ mk_w_item (void* row, ds_key_t index)
 
 	// Update information for populating joint distribution.
 	updateAttributeKeyRecord(pColorRecord, i_color_id);
-	updateAttributeKeyRecord(pCategoryRecord, r->i_category_id);
+	updateAttributeKeyRecord(pCategoryRecord, (int)r->i_category_id);
 
 	/*
 	 * if this is the first of a set of revisions, then baseline the old values

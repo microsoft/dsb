@@ -241,15 +241,14 @@ WriteIndex(distindex_t *t)
 /*
 * Add normal distribution to the weights of data values.
 */
-void
+int
 AddGuassianDist(distindex_t * t)
 {
 	// Add normal distribution to weights.
 	init_rand();
 
-	int i, j;
-	d_idx_t *pIndexEntry;
-
+	int i;
+	
 	for (i = 0; i < t->nDistCount; ++i) {
 		// Add one more weight column of normal distribution.
 
@@ -271,6 +270,8 @@ AddGuassianDist(distindex_t * t)
 		printf("Distribution after adding Gaussian\n");
 		print_dist_index(t);
 	}
+
+	return 0;
 }
 
 

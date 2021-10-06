@@ -107,7 +107,7 @@
       <AssemblerListingLocation>.\junk/</AssemblerListingLocation>
       <ObjectFileName>.\junk/</ObjectFileName>
       <ProgramDataBaseFileName>.\junk/</ProgramDataBaseFileName>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <CompileAs>CompileAsC</CompileAs>
     </ClCompile>

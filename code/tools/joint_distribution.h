@@ -61,7 +61,8 @@ void genrandCorrelatedJointDistribution(struct ATTRIBUTE_KEY_MAP * map1, struct 
 void
 genrandSingleTableOneSidedCorrelatedJointDistribution(int driveAttributeCount, int driveAttributeId,
 	struct ATTRIBUTE_KEY_MAP * map,
-	int * attributePermutation,
+	//int * attributePermutation,
+	ds_key_t* attributePermutation,
 	int dist, double radius,
 	int stream,
 	ds_key_t * key);

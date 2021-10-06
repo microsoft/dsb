@@ -70,6 +70,7 @@ struct ATTRIBUTE_KEY_RECORD * initializeCharAttributeKeyRecord(int maxAttributeC
 {
 	struct ATTRIBUTE_KEY_RECORD * record;
 	record = (struct ATTRIBUTE_KEY_RECORD *)malloc(sizeof(struct ATTRIBUTE_KEY_RECORD));
+	MALLOC_CHECK(record);
 
 	record->maxAttributeCount = maxAttributeCount;
 	record->attributeCount = 0;
@@ -112,6 +113,7 @@ struct ATTRIBUTE_KEY_RECORD * initializeAttributeKeyRecord(int attributeCount, i
 {
 	struct ATTRIBUTE_KEY_RECORD * record;
 	record = (struct ATTRIBUTE_KEY_RECORD *)malloc(sizeof(struct ATTRIBUTE_KEY_RECORD));
+	MALLOC_CHECK(record);
 
 	record->attributeCount = attributeCount;
 	record->keyCount = keyCount;
@@ -151,6 +153,7 @@ struct ATTRIBUTE_KEY_RECORD * initializeAttributeKeyRecordCountOnly(int attribut
 {
 	struct ATTRIBUTE_KEY_RECORD * record;
 	record = (struct ATTRIBUTE_KEY_RECORD *)malloc(sizeof(struct ATTRIBUTE_KEY_RECORD));
+	MALLOC_CHECK(record);
 
 	record->attributeCount = attributeCount;
 
@@ -168,6 +171,7 @@ struct ATTRIBUTE_KEY_MAP * initializeAttributeKeyMap(int attributeCount, int key
 {
 	struct ATTRIBUTE_KEY_MAP * map;
 	map = (struct ATTRIBUTE_KEY_MAP *)malloc(sizeof(struct ATTRIBUTE_KEY_MAP));
+	MALLOC_CHECK(map);
 
 	map->attributeCount = attributeCount;
 	map->keyCount = keyCount;
@@ -267,7 +271,7 @@ genrandCorrelatedJointDistribution(struct ATTRIBUTE_KEY_MAP * map1, struct ATTRI
 void
 genrandSingleTableOneSidedCorrelatedJointDistribution(int driveAttributeCount, int driveAttributeId,
 	struct ATTRIBUTE_KEY_MAP * map,
-	int * attributePermutation,
+	ds_key_t * attributePermutation, // Use ds_key_t for foreign keys, however, the attribute value domain size is not intended to be used beyond int.
 	int dist, double radius,
 	int stream,
 	ds_key_t * key)
@@ -282,12 +286,13 @@ genrandSingleTableOneSidedCorrelatedJointDistribution(int driveAttributeCount, i
 	genrand_integer(&tmp2, dist, tmpMin, tmpMax, 0, stream);
 	// Wrap around if the number is larger than the max.
 	tmp2 = tmp2 % map->attributeCount + 1;
-	mapPermutation(&tmp2, attributePermutation);
+	ds_key_t tmp_key = tmp2;
+	mapKeyPermutation(&tmp_key, attributePermutation);
 	// Roll over to the next attribute if the corresponding attribute has 0 keys.
-	while (map->attributeKeyCount[tmp2 - 1] == 0) {
-		tmp2 = (tmp2 + 1) % map->attributeCount;
+	while (map->attributeKeyCount[tmp_key - 1] == 0) {
+		tmp_key = (tmp_key + 1) % map->attributeCount;
 	}
-	*key = genrandKeyWithAttribute(map, DIST_UNIFORM, tmp2, stream);
+	*key = genrandKeyWithAttribute(map, DIST_UNIFORM, (int)tmp_key, stream);
 }
 
 

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema
+      Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
+    <AvailableItemName
+      Include="Bison">
+      <Targets>_Bison</Targets>
+    </AvailableItemName>
+    <AvailableItemName
+      Include="Flex">
+      <Targets>_Flex</Targets>
+    </AvailableItemName>
+  </ItemGroup>
+  <UsingTask
+    TaskName="Bison"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <UsingTask
+    TaskName="Flex"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <Target
+    Name="_Bison"
+    BeforeTargets="$(BisonBeforeTargets)"
+    AfterTargets="$(BisonAfterTargets)"
+    Condition="'@(Bison)' != ''"
+    DependsOnTargets="$(BisonDependsOn);ComputeBisonOutput"
+    Outputs="@(Bison-&gt;Metadata('Outputs')-&gt;Distinct())"
+    Inputs="@(Bison);%(Bison.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Bison
+        Remove="@(Bison)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Bison_tlog
+        Include="%(Bison.Outputs)"
+        Condition="'%(Bison.Outputs)' != '' and '%(Bison.ExcludedFromBuild)' != 'true'">
+        <Source>@(Bison, '|')</Source>
+      </Bison_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Bison.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Bison_tlog)' != '' and '%(Bison_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Bison_tlog.Source);@(Bison_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Bison
+      Condition="'@(Bison)' != '' and '%(Bison.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Bison.CommandLineTemplate)"
+      AdditionalOptions="%(Bison.AdditionalOptions)"
+      Inputs="@(Bison)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeBisonOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeBisonOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeBisonOutput"
+    Condition="'@(Bison)' != ''">
+    <ItemGroup>
+      <BisonDirsToMake
+        Condition="'@(Bison)' != '' and '%(Bison.ExcludedFromBuild)' != 'true'"
+        Include="%(Bison.Outputs)" />
+      <Link
+        Include="%(BisonDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(BisonDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(BisonDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(BisonDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+  <Target
+    Name="_Flex"
+    BeforeTargets="$(FlexBeforeTargets)"
+    AfterTargets="$(FlexAfterTargets)"
+    Condition="'@(Flex)' != ''"
+    DependsOnTargets="$(FlexDependsOn);ComputeFlexOutput"
+    Outputs="@(Flex-&gt;Metadata('Outputs')-&gt;Distinct())"
+    Inputs="@(Flex);%(Flex.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <Flex
+        Remove="@(Flex)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <Flex_tlog
+        Include="%(Flex.Outputs)"
+        Condition="'%(Flex.Outputs)' != '' and '%(Flex.ExcludedFromBuild)' != 'true'">
+        <Source>@(Flex, '|')</Source>
+      </Flex_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(Flex.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(Flex_tlog)' != '' and '%(Flex_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(Flex_tlog.Source);@(Flex_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <Flex
+      Condition="'@(Flex)' != '' and '%(Flex.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(Flex.CommandLineTemplate)"
+      AdditionalOptions="%(Flex.AdditionalOptions)"
+      Inputs="@(Flex)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeFlexOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeFlexOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeFlexOutput"
+    Condition="'@(Flex)' != ''">
+    <ItemGroup>
+      <FlexDirsToMake
+        Condition="'@(Flex)' != '' and '%(Flex.ExcludedFromBuild)' != 'true'"
+        Include="%(Flex.Outputs)" />
+      <Link
+        Include="%(FlexDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(FlexDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(FlexDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(FlexDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+</Project>

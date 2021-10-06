@@ -1,4 +1,5 @@
 # Global excludes across all subdirectories
+*junk
 *.bak
 *.o
 *.obj
