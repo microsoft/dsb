@@ -126,7 +126,8 @@ mk_w_inventory(void *pDest, ds_key_t index)
 		1, invQuantityBucketCount, 0, INV_QUANTITY_ON_HAND);
 	mapPermutation(&tmp, pInvQuantityPermutation);
 	int rangeMin = (tmp - 1) * invQuantityBucket + INV_QUANTITY_MIN;
-	int rangeMax = min(INV_QUANTITY_MAX, tmp * invQuantityBucket + INV_QUANTITY_MIN);
+	int v_max = tmp * invQuantityBucket + INV_QUANTITY_MIN;
+	int rangeMax = v_max < INV_QUANTITY_MAX ? v_max : INV_QUANTITY_MAX;
 	genrand_integer(&r->inv_quantity_on_hand, DIST_UNIFORM,
 		rangeMin, rangeMax, 0, INV_QUANTITY_ON_HAND);
 	return (0);

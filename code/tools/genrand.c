@@ -177,7 +177,7 @@ skip_random (int nStream, ds_key_t N)
  * Note the returned value is [min, max]
 */
 long long
-genrand_exp_rank(long long min, long long max, double lambda, int stream)
+genrand_exp_rank(long long v_min, long long v_max, double lambda, int stream)
 {
 	// Generate the probability between [0, 1]
 	double prob = next_random_float(stream);
@@ -189,10 +189,10 @@ genrand_exp_rank(long long min, long long max, double lambda, int stream)
 	double x = -log(1 - cdf) / lambda;
 	double ratio = (x - DIST_EXP_X_MIN) / (DIST_EXP_X_MAX - DIST_EXP_X_MIN);
 	// Prevent the ratio from going out of range due to numerical errors.
-	ratio = max(0, ratio);
-	ratio = min(1, ratio);
+	ratio = fmax(0, ratio);
+	ratio = fmin(1, ratio);
 	// Scale it back into the given range.
-	long long rank = min + (long long)(0.5 + (max - min) * ratio);
+	long long rank = v_min + (long long)(0.5 + (v_max - v_min) * ratio);
 	return rank;
 }
 

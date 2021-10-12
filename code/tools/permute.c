@@ -39,6 +39,7 @@
 #include <malloc.h>
 #endif
 #include <stdio.h>
+#include <stdlib.h>
 #include "genrand.h"
 
  /*
@@ -48,7 +49,8 @@ void
 makeRangeFromBucket(int * rangeMin, int * rangeMax, int bucketSize, int bucketIdx, int nMin, int nMax)
 {
 	*rangeMin = (bucketIdx - 1) * bucketSize + nMin;
-	*rangeMax = min(bucketIdx * bucketSize + nMin, nMax);
+	int v_max = bucketIdx * bucketSize + nMin;
+	*rangeMax = v_max < nMax ? v_max : nMax;
 }
 
 /*
@@ -57,7 +59,7 @@ makeRangeFromBucket(int * rangeMin, int * rangeMax, int bucketSize, int bucketId
 void
 makeBucket(int * bucketSize, int * bucketCount, int estimateBucketCount, int itemCount)
 {
-	*bucketCount = min(estimateBucketCount, itemCount);
+	*bucketCount = estimateBucketCount < itemCount ? estimateBucketCount : itemCount;
 	*bucketSize = (itemCount + *bucketCount - 1) / *bucketCount;
 	*bucketCount = (itemCount + *bucketSize - 1) / *bucketSize;
 }

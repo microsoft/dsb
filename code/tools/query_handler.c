@@ -268,7 +268,7 @@ void GenerateQuery(FILE *pOutFile, FILE *pLogFile, int nQuery)
 #ifdef MEM_TEST
 	if (pSub->pAssignment->Value.pBuf == NULL) fprintf(stderr, "NULL pBuf %x @ %d\n", pSub->pAssignment, __LINE__);
 #endif
-		pSub->nDataType = EvalExpr(pSub->pAssignment, pSub->arValues, 0, nQueryCount, DIST_NORMAL);
+		pSub->nDataType = EvalExpr(pSub->pAssignment, pSub->arValues, 0, nQueryCount);
 		if (pLogFile)
 		{
 			for (i=0; i < nBufferCount; i++)

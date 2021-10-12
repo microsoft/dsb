@@ -114,12 +114,12 @@ PROGS = $(PROG1) $(PROG2) $(PROG3) $(PROG4) $(PROG5)
 COMMON_HDR = address.h build_support.h config.h constants.h date.h \
 	dcgram.h dcomp.h dcomp_params.h decimal.h dist.h driver.h \
 	error_msg.h expr.h genrand.h grammar.h grammar_support.h \
-	list.h load.h misc.h nulls.h parallel.h params.h \
+	joint_distribution.h list.h load.h misc.h nulls.h parallel.h params.h \
 	permute.h porting.h pricing.h print.h qgen_params.h query_handler.h \
 	release.h r_params.h StringBuffer.h tdef_functions.h \
 	tdefs.h template.h scd.h mathops.h scd.h sparse.h validate.h
-DISTCOMP_HDR = dcgram.h dcomp.h dcomp_params.h grammar.h nulls.h 
-QGEN_HDR = eval.h substitution.h  keywords.h permute.h qgen_params.h 
+DISTCOMP_HDR = date.h dcgram.h dcomp.h dcomp_params.h decimal.h dist.h error_msg.h genrand.h grammar.h permute.h nulls.h 
+QGEN_HDR = eval.h substitution.h  keywords.h qgen_params.h utility.h
 S_HDR = s_brand.h s_customer_address.h scaling.h s_call_center.h s_catalog.h \
 	s_catalog_order.h s_catalog_order_lineitem.h s_catalog_page.h \
 	s_catalog_promotional_item.h s_catalog_returns.h s_category.h \
@@ -137,18 +137,18 @@ W_HDR = w_call_center.h w_catalog_page.h w_catalog_returns.h \
 	w_promotion.h w_reason.h w_ship_mode.h \
 	w_store.h w_store_returns.h w_store_sales.h w_tdefs.h w_timetbl.h \
 	w_warehouse.h w_web_page.h w_web_returns.h w_web_sales.h w_web_site.h \
-	dbgen_version.h
+	dbgen_version.h joint_distribution.h
 HDR = $(COMMON_HDR) $(DISTCOMP_HDR) $(QGEN_HDR) $(S_HDR) $(W_HDR)
 #
 COMMON_SRC = address.c build_support.c date.c \
 	decimal.c dist.c driver.c error_msg.c expr.c genrand.c \
-	grammar_support.c join.c list.c load.c misc.c \
+	grammar_support.c join.c joint_distribution.c list.c load.c misc.c \
 	nulls.c parallel.c permute.c pricing.c print.c r_params.c StringBuffer.c \
 	tdef_functions.c tdefs.c text.c scd.c scaling.c release.c scd.c sparse.c \
 	porting.c validate.c
-DISTCOMP_SRC = dcgram.c dcomp.c grammar.c 
+DISTCOMP_SRC = date.c dcgram.c dcomp.c decimal.c dist.c error_msg.c genrand.c grammar.c permute.c r_params.c StringBuffer.c
 QGEN_SRC = tokenizer.l substitution.c QgenMain.c qgen.y query_handler.c \
-	eval.c keywords.c
+	eval.c keywords.c utility.c
 S_SRC = s_brand.c s_customer_address.c scaling.c s_call_center.c s_catalog.c \
 	s_catalog_order.c s_catalog_order_lineitem.c s_catalog_page.c \
 	s_catalog_promotional_item.c s_catalog_returns.c s_category.c \
@@ -165,7 +165,7 @@ W_SRC = w_call_center.c w_catalog_page.c w_catalog_returns.c w_catalog_sales.c \
 	w_item.c \
 	w_promotion.c w_reason.c w_ship_mode.c w_store.c w_store_returns.c \
 	w_store_sales.c w_timetbl.c w_warehouse.c w_web_page.c w_web_returns.c \
-	w_web_sales.c w_web_site.c dbgen_version.c
+	w_web_sales.c w_web_site.c dbgen_version.c joint_distribution.c
 SRC = $(COMMON_SRC) $(DISTCOMP_SRC) $(S_SRC) $(W_SRC) $(QGEN_SRC) mkheader.c checksum.c
 #
 DBGEN_OBJ = address.o build_support.o date.o \
@@ -173,12 +173,12 @@ DBGEN_OBJ = address.o build_support.o date.o \
 	join.o list.o load.o misc.o \
 	nulls.o parallel.o permute.o pricing.o print.o r_params.o StringBuffer.o \
 	tdef_functions.o tdefs.o text.o scd.o scaling.o release.o sparse.o validate.o
-DISTCOMP_OBJ = dcgram.o dcomp.o grammar.o error_msg.o StringBuffer.o r_params.o 
+DISTCOMP_OBJ = date.o dcgram.o dcomp.o decimal.o dist.o genrand.o grammar.o error_msg.o r_params.o permute.o StringBuffer.o
 QGEN_OBJ = address.o date.o decimal.o dist.o error_msg.o expr.o \
 	eval.o genrand.o grammar_support.o keywords.o list.o \
-	nulls.o permute.o print.o QgenMain.o query_handler.o r_params.o \
+	nulls.o print.o permute.o QgenMain.o query_handler.o r_params.o \
 	scaling.o StringBuffer.o substitution.o tdefs.o text.o tokenizer.o w_inventory.o y.tab.o \
-	release.o scd.o build_support.o parallel.o 
+	release.o scd.o build_support.o parallel.o  utility.o
 S_OBJ = s_brand.o s_customer_address.o s_call_center.o s_catalog.o \
 	s_catalog_order.o s_catalog_order_lineitem.o s_catalog_page.o \
 	s_catalog_promotional_item.o s_catalog_returns.o s_category.o \
@@ -195,7 +195,7 @@ W_OBJ = w_call_center.o w_catalog_page.o w_catalog_returns.o w_catalog_sales.o \
 	w_item.o \
 	w_promotion.o w_reason.o w_ship_mode.o w_store.o w_store_returns.o \
 	w_store_sales.o w_timetbl.o w_warehouse.o w_web_page.o w_web_returns.o \
-	w_web_sales.o w_web_site.o dbgen_version.o
+	w_web_sales.o w_web_site.o dbgen_version.o joint_distribution.o
 #
 OBJ1 =	$(S_OBJ) $(W_OBJ) $(DBGEN_OBJ)
 OBJ2 =	$(QGEN_OBJ)

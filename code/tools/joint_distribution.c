@@ -217,8 +217,12 @@ genrandCorrelatedKeyDistribution(int driveAttributeCount, ds_key_t driveAttribut
 	// Map this value to the second attribute.
 	// The second attribute value is drawn from an exponential distribution
 	// from the mapped value.
-	ds_key_t tmpMin = max(1, (ds_key_t)(attributeCount * ratio));
-	ds_key_t tmpMax = max(1, (ds_key_t)(attributeCount * (ratio + radius)));
+	ds_key_t tmpMin = (ds_key_t)(attributeCount * ratio);
+	if (tmpMin < 1)
+		tmpMin = 1;
+	ds_key_t tmpMax = (ds_key_t)(attributeCount * (ratio + radius));
+	if (tmpMax < 1)
+		tmpMax = 1;
 	ds_key_t tmp2;
 	genrand_key(&tmp2, dist, tmpMin, tmpMax, 0, stream);
 	// Wrap around if the number is larger than the max.
@@ -245,8 +249,12 @@ genrandCorrelatedJointDistribution(struct ATTRIBUTE_KEY_MAP * map1, struct ATTRI
 	// The second attribute value is drawn from an exponential distribution
 	// from the mapped value.
 	double ratio = 1.0 * tmp1 / map1->attributeCount;
-	int tmpMin = max(1, (int)(map2->attributeCount * ratio));
-	int tmpMax = max(1, (int)(map2->attributeCount * (ratio + radius)));
+	int tmpMin = (int)(map2->attributeCount * ratio);
+	if (tmpMin < 1)
+		tmpMin = 1;
+	int tmpMax = (int)(map2->attributeCount * (ratio + radius));
+	if (tmpMax < 1)
+		tmpMax = 1;
 	int tmp2;
 	genrand_integer(&tmp2, distAttribute2, tmpMin, tmpMax, 0, stream);
 	// Wrap around if the number is larger than the max.
@@ -280,8 +288,12 @@ genrandSingleTableOneSidedCorrelatedJointDistribution(int driveAttributeCount, i
 	// Map this value to the second attribute.
 	// The second attribute value is drawn from an exponential distribution
 	// from the mapped value.
-	int tmpMin = max(1, (int)(map->attributeCount * ratio));
-	int tmpMax = max(1, (int)(map->attributeCount * (ratio + radius)));
+	int tmpMin = (int)(map->attributeCount * ratio);
+	if (tmpMin < 1)
+		tmpMin = 1;
+	int tmpMax = (int)(map->attributeCount * (ratio + radius));
+	if (tmpMax < 1)
+		tmpMax = 1;
 	int tmp2;
 	genrand_integer(&tmp2, dist, tmpMin, tmpMax, 0, stream);
 	// Wrap around if the number is larger than the max.
