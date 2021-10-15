@@ -2,6 +2,13 @@
 
 The DSB benchmark is designed for evaluating both workloaddriven and traditional database systems on modern decision support workloads. DSB is adapted from the widely-used industrialstandard TPC-DS benchmark. It enhances the TPC-DS benchmark with complex data distribution and challenging yet semantically meaningful query templates. DSB also introduces configurable and dynamic workloads to assess the adaptability of database systems. Since workload-driven and traditional database systems have different performance dimensions, including the additional resources required for tuning and maintaining the systems, we provide guidelines on evaluation methodology and metrics to report.
 
+The detail of this benchmark is described here: 
+
+Bailu Ding, Surajit Chaudhuri, Johannes Gehrke, and Vivek Narasayya. DSB: A Decision Support Benchmark for Workload-Driven and Traditional
+Database Systems PVLDB, 14(13): 3376 - 3388, 2021. doi:10.14778/3484224.3484234
+
+(http://www.vldb.org/pvldb/vol14/p3376-ding.pdf)
+
 Disclaimer: The DSB benchmark is derived from TPC-DS and as such is not comparable to published TPC-DS results,
 as the DSB benchmark does not comply with the TPC-DS benchmark
 
