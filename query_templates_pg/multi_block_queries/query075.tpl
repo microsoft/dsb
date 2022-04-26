@@ -111,6 +111,7 @@ GROUP BY d_year, i_brand_id, i_class_id, i_category_id, i_manufact_id)
    AND curr_yr.i_manufact_id=prev_yr.i_manufact_id
    AND curr_yr.d_year=[YEAR]
    AND prev_yr.d_year=[YEAR]-1
+   AND prev_yr.sales_cnt > 0
    AND CAST(curr_yr.sales_cnt AS DECIMAL(17,2))/CAST(prev_yr.sales_cnt AS DECIMAL(17,2))<0.9
  ORDER BY sales_cnt_diff,sales_amt_diff
  [_LIMITC];
