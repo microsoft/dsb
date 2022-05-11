@@ -2,7 +2,7 @@
 
 The DSB benchmark is designed for evaluating both workloaddriven and traditional database systems on modern decision support workloads. DSB is adapted from the widely-used industrialstandard TPC-DS benchmark. It enhances the TPC-DS benchmark with complex data distribution and challenging yet semantically meaningful query templates. DSB also introduces configurable and dynamic workloads to assess the adaptability of database systems. Since workload-driven and traditional database systems have different performance dimensions, including the additional resources required for tuning and maintaining the systems, we provide guidelines on evaluation methodology and metrics to report.
 
-The detail of this benchmark is described here: 
+The detail of this benchmark is described here:
 
 Bailu Ding, Surajit Chaudhuri, Johannes Gehrke, and Vivek Narasayya. DSB: A Decision Support Benchmark for Workload-Driven and Traditional
 Database Systems PVLDB, 14(13): 3376 - 3388, 2021. doi:10.14778/3484224.3484234
@@ -63,6 +63,8 @@ as the DSB benchmark does not comply with the TPC-DS benchmark
 - The code and scripts for data generation and query generation are tested under Windows Server 2019.
 - The query templates are tested under Microsoft SQL Server 2019 and Postgres V13.
 
+## Known issues
+- The code has known compatibility issues with older versions of Linux and GCC. Please run the code with a newer version of Linux and GCC, e.g., Ubuntu 20.04 LTS.
 
 ## Contributing
 
