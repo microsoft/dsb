@@ -48,7 +48,7 @@
 #include "permute.h"
 #include "scaling.h"
 
-struct W_WAREHOUSE_TBL g_w_warehouse;
+extern struct W_WAREHOUSE_TBL g_w_warehouse;
 
 /*
 * Routine: 
