@@ -57,8 +57,8 @@ struct W_CUSTOMER_ADDRESS_TBL g_w_customer_address;
 
 static int * pLocationTypePermutation;
 
-struct ATTRIBUTE_KEY_RECORD * pCountyRecord;
-struct ATTRIBUTE_KEY_RECORD * pStateRecord;
+struct ATTRIBUTE_KEY_RECORD * g_w_customer_address_pCountyRecord;
+struct ATTRIBUTE_KEY_RECORD * g_w_customer_address_pStateRecord;
 
 /*
 * mk_customer_address
@@ -77,10 +77,10 @@ mk_w_customer_address (void* row, ds_key_t index)
 
 		int nKey = (int)get_rowcount(CUSTOMER_ADDRESS);
 		int nAttribute = distsize("fips_county");
-		pCountyRecord = initializeAttributeKeyRecord(nAttribute, nKey);
+		g_w_customer_address_pCountyRecord = initializeAttributeKeyRecord(nAttribute, nKey);
 
 		int nMaxAttribute = 52;
-		pStateRecord = initializeCharAttributeKeyRecord(nMaxAttribute, nKey);
+		g_w_customer_address_pStateRecord = initializeCharAttributeKeyRecord(nMaxAttribute, nKey);
 
 		bInit = 1;
 	}
@@ -104,8 +104,8 @@ mk_w_customer_address (void* row, ds_key_t index)
 	mk_address(&r->ca_address, CA_ADDRESS);
 
 	// Update information for populating joint distribution.
-	updateAttributeKeyRecord(pCountyRecord, g_address_county_id);
-	updateCharAttributeKeyRecord(pStateRecord, r->ca_address.state);
+	updateAttributeKeyRecord(g_w_customer_address_pCountyRecord, g_address_county_id);
+	updateCharAttributeKeyRecord(g_w_customer_address_pStateRecord, r->ca_address.state);
 	return (res);
 }
 
@@ -194,7 +194,7 @@ ld_w_customer_address(void *row)
 int
 post_w_customer_address()
 {
-	serializeAttributeKeyRecord("customer_address_county", pCountyRecord);
-	serializeAttributeKeyRecord("customer_address_state", pStateRecord);
+	serializeAttributeKeyRecord("customer_address_county", g_w_customer_address_pCountyRecord);
+	serializeAttributeKeyRecord("customer_address_state", g_w_customer_address_pStateRecord);
 	return 0;
 }
