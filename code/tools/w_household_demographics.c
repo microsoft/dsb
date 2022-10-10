@@ -59,7 +59,7 @@
 
 struct W_HOUSEHOLD_DEMOGRAPHICS_TBL g_w_household_demographics;
 
-struct ATTRIBUTE_KEY_RECORD * pDemoRecord;
+struct ATTRIBUTE_KEY_RECORD * g_w_household_pDemoRecord;
 
 /*
 * mk_household_demographics
@@ -82,7 +82,7 @@ mk_w_household_demographics (void* row, ds_key_t index)
 	if (!bInit) {
 		int nMaxAttribute = distsize("buy_potential") * distsize("dependent_count");
 		int nKey = (int)get_rowcount(HOUSEHOLD_DEMOGRAPHICS);
-		pDemoRecord = initializeCharAttributeKeyRecord(nMaxAttribute, nKey);
+		g_w_household_pDemoRecord = initializeCharAttributeKeyRecord(nMaxAttribute, nKey);
 		bInit = 1;
 	}
 
@@ -105,7 +105,7 @@ mk_w_household_demographics (void* row, ds_key_t index)
 	value[len1] = '0' + r->hd_dep_count;
 	value[len1 + 1] = '\0';
 	// Add skews to data
-	updateCharAttributeKeyRecord(pDemoRecord, value);
+	updateCharAttributeKeyRecord(g_w_household_pDemoRecord, value);
 
 	return (res);
 }
@@ -177,6 +177,6 @@ ld_w_household_demographics(void *pSrc)
 int
 post_w_household_demographics()
 {
-	serializeAttributeKeyRecord("household_demographics", pDemoRecord);
+	serializeAttributeKeyRecord("household_demographics", g_w_household_pDemoRecord);
 	return 0;
 }
