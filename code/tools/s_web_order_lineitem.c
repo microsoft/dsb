@@ -51,9 +51,9 @@
 #include "scaling.h"
 #include "scd.h"
 
-struct S_WEB_ORDER_LINEITEM_TBL g_s_web_order_lineitem;
+extern struct S_WEB_ORDER_LINEITEM_TBL g_s_web_order_lineitem;
 extern struct S_WEB_ORDER_TBL g_s_web_order;
-extern int nItemIndex;
+extern int g_s_web_order_nItemIndex;
 
 /*
 * Routine:
@@ -99,13 +99,13 @@ mk_s_web_order_lineitem(void *pDest, ds_key_t kIndex)
 
 	r->kOrderID = g_s_web_order.kID;
 	r->kLineNumber = kIndex;
-   if (++nItemIndex  > nItemCount)
-      nItemIndex += 1;
+   if (++g_s_web_order_nItemIndex  > nItemCount)
+      g_s_web_order_nItemIndex += 1;
 
    /*
     * select a unique item, and then map to the appropriate business key
 	*/
-	r->kItemID = getPermutationEntry(pItemPermutation, nItemIndex);
+	r->kItemID = getPermutationEntry(pItemPermutation, g_s_web_order_nItemIndex);
 	r->kItemID = getFirstSK(r->kItemID);
 
 	r->kPromotionID = mk_join(S_WLIN_PROMOTION_ID, PROMOTION, 1);
