@@ -53,7 +53,7 @@
 struct S_CATALOG_ORDER_TBL g_s_catalog_order;
 struct S_CATALOG_ORDER_LINEITEM_TBL g_s_catalog_order_lineitem;
 struct S_CATALOG_RETURNS_TBL	g_s_catalog_return;
-int nItemIndex;
+int g_s_catalog_order_nItemIndex;
 
 /*
 * Routine: 
@@ -133,7 +133,7 @@ mk_s_catalog_order(void *pDest, ds_key_t kIndex)
    int i;
 
    mk_master(pDest, kIndex);
-   genrand_integer(&nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_CLIN_ITEM_ID);
+   genrand_integer(&g_s_catalog_order_nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_CLIN_ITEM_ID);
 	for (i=1; i <= 9; i++)
 	{
       mk_detail(&g_s_catalog_order_lineitem, i, 1);
@@ -219,7 +219,7 @@ vld_s_catalog_order(int nTable, ds_key_t kRow, int* bPermutation)
 
    mk_master(NULL, kRow);
    genrand_integer(&nLineitem, DIST_UNIFORM, 1, 9, 0, S_CLIN_LINE_NUMBER);
-   genrand_integer(&nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_CLIN_ITEM_ID);
+   genrand_integer(&g_s_catalog_order_nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_CLIN_ITEM_ID);
    for (i=1; i < nLineitem; i++)
       mk_detail(&g_s_catalog_order_lineitem, i, 0);
    print_start(S_CATALOG_ORDER_LINEITEM);
