@@ -55,7 +55,7 @@ CC		= $($(OS)_CC)
 # CFLAGS
 AIX_CFLAGS		= -q64 -O3 -D_LARGE_FILES
 HPUX_CFLAGS		= -O3 -Wall
-LINUX_CFLAGS	= -g -Wall
+LINUX_CFLAGS	= -g -Wall -fcommon
 NCR_CFLAGS		= -g 
 SOLARIS_CFLAGS	= -O3 -Wall
 SOL86_CFLAGS	= -O3 
