@@ -44,6 +44,13 @@
 extern int yydebug;
 #endif
 
+/* unistd.h */
+#ifdef WIN32
+  #ifndef YY_NO_UNISTD_H
+    #define YY_NO_UNISTD_H
+  #endif
+#endif
+
 /* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
