@@ -52,7 +52,7 @@
 struct S_PURCHASE_TBL g_s_purchase;
 struct S_PURCHASE_LINEITEM_TBL g_s_purchase_lineitem;
 struct S_STORE_RETURNS_TBL g_s_store_return;
-int nItemIndex;
+int g_s_purchase_nItemIndex;
 
 /*
 * Routine: 
@@ -165,7 +165,7 @@ mk_s_purchase(void *pDest, ds_key_t kIndex)
    int i;
 
    mk_master(pDest, kIndex);
-   genrand_integer(&nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_PLINE_ITEM_ID);
+   genrand_integer(&g_s_purchase_nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_PLINE_ITEM_ID);
 	for (i=1; i <= 12; i++)
 	{
       mk_detail(i, 1);
@@ -213,7 +213,7 @@ vld_s_purchase(int nTable, ds_key_t kRow, int* bPermutation)
 
    mk_master(NULL, kRow);
    genrand_integer(&nLineitem, DIST_UNIFORM, 1, 12, 0, S_PLINE_NUMBER);
-   genrand_integer(&nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_PLINE_ITEM_ID);
+   genrand_integer(&g_s_purchase_nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_PLINE_ITEM_ID);
    for (i=1; i < nLineitem; i++)
       mk_detail(i, 0);
    print_start(S_PURCHASE_LINEITEM);

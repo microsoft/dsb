@@ -53,7 +53,7 @@
 struct S_WEB_ORDER_TBL g_s_web_order;
 struct S_WEB_ORDER_LINEITEM_TBL g_s_web_order_lineitem;
 struct S_WEB_RETURNS_TBL g_s_web_return;
-int nItemIndex = -1;
+int g_s_web_order_nItemIndex = -1;
 
 /* now build/print the lineitems for this order */
 /* for each lineitem, randomly determine if it is to be returned */
@@ -137,7 +137,7 @@ mk_s_web_order(void *pDest, ds_key_t kIndex)
    int i;
 
    mk_master(pDest, kIndex);
-   genrand_integer(&nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_WLIN_ITEM_ID);
+   genrand_integer(&g_s_web_order_nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_WLIN_ITEM_ID);
 	for (i=1; i <= 12; i++)
 	{
       mk_detail(i, 1);
@@ -225,7 +225,7 @@ vld_s_web_order(int nTable, ds_key_t kRow, int* bPermutation)
 
    mk_master(NULL, kRow);
    genrand_integer(&nLineitem, DIST_UNIFORM, 1, 12, 0, S_WLIN_LINE_NUMBER);
-   genrand_integer(&nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_WLIN_ITEM_ID);
+   genrand_integer(&g_s_web_order_nItemIndex, DIST_UNIFORM, 1, (int)getIDCount(ITEM), 0, S_WLIN_ITEM_ID);
    for (i=1; i < nLineitem; i++)
       mk_detail(i, 0);
    print_start(S_WEB_ORDER_LINEITEM);

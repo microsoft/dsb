@@ -53,7 +53,7 @@
 
 extern struct S_CATALOG_ORDER_LINEITEM_TBL g_s_catalog_order_lineitem;
 extern struct S_CATALOG_ORDER_TBL g_s_catalog_order;
-extern int nItemIndex;
+extern int g_s_catalog_order_nItemIndex;
 
 /*
 * Routine:
@@ -97,14 +97,14 @@ mk_s_catalog_order_lineitem(void *pDest, ds_key_t kIndex)
 
 	r->kOrderID = g_s_catalog_order.kID;
 	r->kLineNumber = kIndex;
-   nItemIndex += 1;
-   if (nItemIndex > getIDCount(ITEM))
-      nItemIndex = 1;
+   g_s_catalog_order_nItemIndex += 1;
+   if (g_s_catalog_order_nItemIndex > getIDCount(ITEM))
+      g_s_catalog_order_nItemIndex = 1;
 
    /*
     * select a unique item, and then map to the appropriate business key
 	*/
-	r->kItemID = getPermutationEntry(pItemPermutation, nItemIndex);
+	r->kItemID = getPermutationEntry(pItemPermutation, g_s_catalog_order_nItemIndex);
 	r->kItemID = getFirstSK(r->kItemID);
 
 	r->kPromotionID = mk_join(S_CLIN_PROMOTION_ID, PROMOTION, 1);

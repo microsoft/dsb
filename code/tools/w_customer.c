@@ -56,10 +56,10 @@ static int * pBirthYearPermutation;
 static int * pBirthMonthPermutation;
 static int * pBirthDayPermutation;
 
-struct ATTRIBUTE_KEY_RECORD * pCountyRecord;
+struct ATTRIBUTE_KEY_RECORD * g_w_customer_pCountyRecord;
 struct ATTRIBUTE_KEY_MAP * pCustomerAddressCountyMap;
 
-struct ATTRIBUTE_KEY_RECORD * pStateRecord;
+struct ATTRIBUTE_KEY_RECORD * g_w_customer_pStateRecord;
 struct ATTRIBUTE_KEY_MAP * pCustomerAddressStateMap;
 
 struct ATTRIBUTE_KEY_MAP * pCdemoMap;
@@ -128,10 +128,10 @@ mk_w_customer (void * row, ds_key_t index)
 		// Load customer county map.
 		pCustomerAddressCountyMap = deserializeAttributeKeyMap("customer_address_county");
 		int nKey = (int)get_rowcount(CUSTOMER);
-		pCountyRecord = initializeAttributeKeyRecord(pCustomerAddressCountyMap->attributeCount, nKey);
+		g_w_customer_pCountyRecord = initializeAttributeKeyRecord(pCustomerAddressCountyMap->attributeCount, nKey);
 
 		pCustomerAddressStateMap = deserializeAttributeKeyMap("customer_address_state");
-		pStateRecord = initializeAttributeKeyRecord(pCustomerAddressStateMap->attributeCount, nKey);
+		g_w_customer_pStateRecord = initializeAttributeKeyRecord(pCustomerAddressStateMap->attributeCount, nKey);
 
 		pCdemoMap = deserializeAttributeKeyMap("customer_demographics");
 		pCdemoPermutation = makeKeyPermutation(NULL, pCdemoMap->attributeCount, C_CURRENT_CDEMO_SK);
@@ -189,10 +189,10 @@ mk_w_customer (void * row, ds_key_t index)
 	// Update information for populating joint distribution.
 	// Map customer address to county.
 	int attribute_id = pCustomerAddressCountyMap->attribute[r->c_current_addr_sk - 1];
-	updateAttributeKeyRecord(pCountyRecord, attribute_id);
+	updateAttributeKeyRecord(g_w_customer_pCountyRecord, attribute_id);
 
 	attribute_id = pCustomerAddressStateMap->attribute[r->c_current_addr_sk - 1];
-	updateAttributeKeyRecord(pStateRecord, attribute_id);
+	updateAttributeKeyRecord(g_w_customer_pStateRecord, attribute_id);
 
 	// Add joint distribution between state and customer demographics.
 	genrandSingleTableOneSidedCorrelatedJointDistribution(attribute_id,
@@ -290,7 +290,7 @@ ld_w_customer(void *row)
 int
 post_w_customer()
 {
-	serializeAttributeKeyRecord("customer_county", pCountyRecord);
-	serializeAttributeKeyRecord("customer_state", pStateRecord);
+	serializeAttributeKeyRecord("customer_county", g_w_customer_pCountyRecord);
+	serializeAttributeKeyRecord("customer_state", g_w_customer_pStateRecord);
 	return 0;
 }

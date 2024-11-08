@@ -51,7 +51,7 @@
 
 struct W_CUSTOMER_DEMOGRAPHICS_TBL g_w_customer_demographics;
 
-struct ATTRIBUTE_KEY_RECORD * pDemoRecord;
+struct ATTRIBUTE_KEY_RECORD * g_w_customer_pDemoRecord;
 
 /*
 * mk_customer_demographics
@@ -66,7 +66,7 @@ mk_w_customer_demographics (void* row, ds_key_t index)
 	if (!bInit) {
 		int nMaxAttribute = distsize("gender") * distsize("education") * distsize("marital_status");
 		int nKey = (int)get_rowcount(CUSTOMER_DEMOGRAPHICS);
-		pDemoRecord = initializeCharAttributeKeyRecord(nMaxAttribute, nKey);
+		g_w_customer_pDemoRecord = initializeCharAttributeKeyRecord(nMaxAttribute, nKey);
 		bInit = 1;
 	}
 
@@ -106,7 +106,7 @@ mk_w_customer_demographics (void* row, ds_key_t index)
 	strcpy(value, r->cd_gender);
 	strcat(value, r->cd_education_status);
 	strcat(value, r->cd_marital_status);
-	updateCharAttributeKeyRecord(pDemoRecord, value);
+	updateCharAttributeKeyRecord(g_w_customer_pDemoRecord, value);
 
 	return (res);
 }
@@ -184,6 +184,6 @@ ld_w_customer_demographics(void *row)
 int
 post_w_customer_demographics()
 {
-	serializeAttributeKeyRecord("customer_demographics", pDemoRecord);
+	serializeAttributeKeyRecord("customer_demographics", g_w_customer_pDemoRecord);
 	return 0;
 }

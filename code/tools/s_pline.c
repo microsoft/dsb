@@ -51,7 +51,7 @@
 
 struct S_PURCHASE_LINEITEM_TBL g_s_pline;
 extern struct S_PURCHASE_TBL g_s_purchase;
-extern int nItemIndex;
+extern int g_s_purchase_nItemIndex;
 
 /*
 * Routine:
@@ -99,15 +99,15 @@ mk_s_pline(void *pDest, ds_key_t kIndex)
 
 	r->kPurchaseID = g_s_purchase.kID;
 	r->kLineNumber = kIndex;
-   nItemIndex += 1;
-   if (nItemIndex > nItemIDCount)
-      nItemIndex = 1;
+   g_s_purchase_nItemIndex += 1;
+   if (g_s_purchase_nItemIndex > nItemIDCount)
+      g_s_purchase_nItemIndex = 1;
 
 	/*
     * pick the next entry in the permutation, to assure uniqueness within order
     * shift to SK value to align with printID() expectations
     */
-   r->kItemID = getPermutationEntry(pItemPermutation, nItemIndex);
+   r->kItemID = getPermutationEntry(pItemPermutation, g_s_purchase_nItemIndex);
    r->kItemID = getFirstSK(r->kItemID);
 
 	r->kPromotionID = mk_join(S_PLINE_PROMOTION_ID, PROMOTION, 1);
